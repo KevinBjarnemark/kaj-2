@@ -1,0 +1,15 @@
+
+scratch/
+
+/target/
+
+.env
+.env.local
+*.env
+
+.idea
+*.iws
+*.iml
+*.ipr
+
+.vscode/
