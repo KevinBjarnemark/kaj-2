@@ -1,15 +1,105 @@
+/*
+    ██╗  ██╗ █████╗       ██╗    ██╗   ██╗██████╗ 
+    ██║ ██╔╝██╔══██╗      ██║    ██║   ██║╚════██╗
+    █████╔╝ ███████║      ██║    ██║   ██║ █████╔╝
+    ██╔═██╗ ██╔══██║ ██   ██║    ╚██╗ ██╔╝██╔═══╝ 
+    ██║  ██╗██║  ██║ ╚█████╔╝     ╚████╔╝ ███████╗
+    ╚═╝  ╚═╝╚═╝  ╚═╝  ╚════╝       ╚═══╝  ╚══════╝
+    >> ARCH LINUX // KAJ V2 // JAKWEI BRANCH <<
+*/
 
-scratch/
+# === [ SYSTEM & ARCH SPECIFIC ] ===
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.directory
+desktop.ini
+.fuse_hidden*
+.trash/
+.nfs*
+*.pem
 
-/target/
-
+# === [ ENV & SECRETS ] ===
+# ! CRITICAL: DO NOT REMOVE !
 .env
-.env.local
+.env.*
+!.env.example
 *.env
+config/secrets/*
 
-.idea
-*.iws
-*.iml
-*.ipr
+# === [ BACKEND: SPRING BOOT / MAVEN ] ===
+target/
+build/
+!**/src/main/**/target/
+!**/src/test/**/target/
+!**/src/main/**/build/
+!**/src/test/**/build/
 
+*.class
+*.jar
+*.war
+*.ear
+*.log
+.mvn/wrapper/maven-wrapper.properties
+!.mvn/wrapper/maven-wrapper.jar
+stacktrace.log
+hs_err_pid*
+HELP.md
+
+# === [ FRONTEND: NEXT.JS / NODE ] ===
+node_modules/
+.next/
+out/
+dist/
+.cache/
+coverage/
+.vercel
+*.tsbuildinfo
+next-env.d.ts
+
+# --- Package Managers (NPM/Yarn/PNPM) ---
+pnpm-lock.yaml
+pnpm-debug.log*
+.pnpm-debug.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# === [ INFRASTRUCTURE: DOCKER ] ===
+mysql_data/
+.docker/
+db_data/
+
+# === [ IDE: VSCODE / INTELLIJ / ECLIPSE / NETBEANS ] ===
 .vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.iml
+*.iws
+*.ipr
+.classpath
+.project
+.settings/
+bin/
+.apt_generated
+.factorypath
+.springBeans
+.sts4-cache
+nbproject/private/
+nbbuild/
+nbdist/
+.nb-gradle/
+
+# === [ SCRATCH ] ===
+scratch/
+temp/
+test-results/

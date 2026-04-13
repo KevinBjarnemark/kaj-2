@@ -1,16 +1,31 @@
-services:
+# ██╗  ██╗ █████╗       ██╗    ██╗   ██╗██████╗ 
+# ██║ ██╔╝██╔══██╗      ██║    ██║   ██║╚════██╗
+# █████╔╝ ███████║      ██║    ██║   ██║ █████╔╝
+# ██╔═██╗ ██╔══██║ ██   ██║    ╚██╗ ██╔╝██╔═══╝ 
+# ██║  ██╗██║  ██║ ╚█████╔╝     ╚████╔╝ ███████╗
+# ╚═╝  ╚═╝╚═╝  ╚═╝  ╚════╝       ╚═══╝  ╚══════╝
+# >> ARCH LINUX // KAJ V2 // DOCKER COMPOSE <<
 
+# === [ SERVICES CONFIGURATION ] ===
+services:
   db:
-     image: mysql:8.4.0
-     # ❕ No container name (Docker handles it automatically)
-     ports:
-       - ${DB_PORT}:3306
-     environment:
-       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
-       - MYSQL_DATABASE=${DB_NAME}
-     volumes:
-       # ❕ Not hardcoded
-       - db_data:/var/lib/mysql
+    # --- Image & Restart Policy ---
+    image: mysql:8.0
+    restart: always
+
+    # --- Port Mapping ---
+    ports:
+      - "3307:3306"
+
+    # --- Environment Credentials ---
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
+
+    # --- Persistent Storage ---
+    volumes:
+      - db_data:/var/lib/mysql
+
+# === [ VOLUMES DECLARATION ] ===
 volumes:
-  # ❕ Declare named volume
   db_data:
