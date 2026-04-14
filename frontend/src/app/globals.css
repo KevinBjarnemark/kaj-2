@@ -1,3 +1,10 @@
+/* ❕ Partial importing of tailwind, ignores defaults. 
+    - This is a legit startegy for precise customizing 
+    of the app.  
+*/
+@import "tailwindcss/theme";
+@import "tailwindcss/utilities";
+
 @font-face {
   font-family: "Niramit";
   src: url("/fonts/Niramit/Niramit-Light.woff2") format("woff2");
@@ -117,7 +124,6 @@ a {
 
 button {
   border: 0 transparent;
-  background-color: transparent;
   cursor: pointer;
   text-decoration: none;
 }
