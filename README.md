@@ -88,5 +88,7 @@ _________________________
 - `npm run dev`
     - Go to [http://localhost:3000/](http://localhost:3000/)
 
+lets go team!!! for gondor!!! 
+
 ## Known Issues  
 - __________ 
