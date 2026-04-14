@@ -24,10 +24,10 @@
     - ❌ Padding (left and right)  
     - ❌ Must be horizontal  
     - ❌ Hover effect on links    
-- ❌ Footer 👤 **Kevin**  
+- ❌ Footer 
     - ❕ Must be reusable    
     ❌ Copyright text  
-- ❌ At least one **image** present on any of the pages
+- ❌ 👤 **Kevin** At least one **image** present on any of the pages
     - 💡 Consistent background image?   
 - ❌ TailWind CSS  
     - ❌ 👤 **Kevin**  Convert all CSS to tailwind
