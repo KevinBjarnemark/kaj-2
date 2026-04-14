@@ -1,3 +1,4 @@
+
 # Kaj 2
 
 ## Table of Contents
@@ -15,16 +16,17 @@
     - ❌ 👤 **Kevin** Convert header, layout, about page to typescript 
 - ❌ Navbar 
     - ❌ 👤 **Anton** Logo to the left   
-    - ❌ Login button    
-        - ✨ Authentication with JWT    
-        - ❌ Must have unique style  
     - ❌ The active page must be highlighted    
     - ❌ Remove list bullet points with CSS   
     - ❌ All items must be centered  
     - ❌ Padding (left and right)  
     - ❌ Must be horizontal  
-    - ❌ Hover effect on links    
-- ❌ Footer 
+    - ❌ Hover effect on links       
+- ❌ 👤 **Jakob** Auth / Login    
+    - ✨ Authentication with JWT   
+    - ❌ Login button    
+        - ❌ Must stand out amongst other elements      
+- ❌ Footer  
     - ❕ Must be reusable    
     ❌ Copyright text  
 - ❌ 👤 **Kevin** At least one **image** present on any of the pages
@@ -35,8 +37,6 @@
 - ❌ Planera Agilt workflow?  
 - ❌ Netlify hosting?  
 - ✨ Dropdown selection för alla funktioner   
-
-
 
 ## Introduction     
 _________________________
