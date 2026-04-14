@@ -5,32 +5,32 @@
 - 🏃‍♂️ [Run the App](#run-the-app)
 - ⛔️ [Known Issues](#known-issues)
 
-
-
-
-### Uppdrag
-- ❌ Contact page   
-    - ❌ Contact form (`name`, `email`, `message`)   
-        - ✨ (`backend`) Save in **MySql** database    
-    - ❌ Link in navbar
+### Uppdrag  
+- 👤 **Stoffe**  
+    - ❌ Contact page   
+        - ❌ Contact form (`name`, `email`, `message`)   
+            - ✨ (`backend`) Save in **MySql** database    
+        - ❌ Link in navbar    
+- ❌ Header
+    - ❌ 👤 **Kevin** Convert header, layout, about page to typescript 
 - ❌ Navbar 
-    - ❌ Logo to the left   
+    - ❌ 👤 **Anton** Logo to the left   
     - ❌ Login button    
         - ✨ Authentication with JWT    
         - ❌ Must have unique style  
     - ❌ The active page must be highlighted    
-    - ❌ Remove list bullet points with CSS  
+    - ❌ Remove list bullet points with CSS   
     - ❌ All items must be centered  
     - ❌ Padding (left and right)  
     - ❌ Must be horizontal  
     - ❌ Hover effect on links    
-- ❌ Footer   
+- ❌ Footer 👤 **Kevin**  
     - ❕ Must be reusable    
     ❌ Copyright text  
 - ❌ At least one **image** present on any of the pages
     - 💡 Consistent background image?   
-- ❌ Konvertera / bygga om JavaScript till TypeScript
 - ❌ TailWind CSS  
+    - ❌ 👤 **Kevin**  Convert all CSS to tailwind
 - ❌ API anrop till backend?  
 - ❌ Planera Agilt workflow?  
 - ❌ Netlify hosting?  
@@ -87,9 +87,6 @@ _________________________
 #### 3. 🏃 Run application (terminal)
 - `npm run dev`
     - Go to [http://localhost:3000/](http://localhost:3000/)
-
-
-
 
 ## Known Issues  
 - __________ 
