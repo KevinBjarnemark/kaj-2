@@ -3,6 +3,7 @@ package edu.jensen.kaj.service;
 import java.util.List;
 
 import edu.jensen.kaj.exception.UserNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder; // tillagd
 import org.springframework.stereotype.Service;
 
 import edu.jensen.kaj.entity.User;
@@ -11,18 +12,24 @@ import edu.jensen.kaj.repository.UserRepository;
 @Service
 public class UserService {
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder; // tillagd
 
-    public UserService(UserRepository userRepository) {
+    // --- uppdaterad konstruktor för att injicera passwordEncoder från ApplicationConfig ---
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public User createUser(String email, String username, String password) {
-
         if (userRepository.existsByEmail(email)) {
-            throw new RuntimeException("Email already exists: " + email);
+            // --- REFACTORED --- svenskt felmeddelande för konsekvens ---
+            throw new RuntimeException("E-postadressen existerar redan: " + email);
         }
 
-        User user = new User(email, username, password);
+        // --- REFACTORED --- Kryptera lösenordet innan det sparas i databasen ---
+        String encodedPassword = passwordEncoder.encode(password);
+        
+        User user = new User(email, username, encodedPassword);
         return userRepository.save(user);
     }
 
@@ -51,5 +58,4 @@ public class UserService {
         getUserById(id);
         userRepository.deleteById(id);
     }
-
 }
