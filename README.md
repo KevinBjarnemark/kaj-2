@@ -6,14 +6,15 @@
 - 🏃‍♂️ [Run the App](#run-the-app)
 - ⛔️ [Known Issues](#known-issues)
 
+### Avklarade uppdrag  
+- ✔️ Convert to TypeScript and TailWind
+
 ### Uppdrag  
 - 👤 **Stoffe**  
     - ❌ Contact page   
         - ❌ Contact form (`name`, `email`, `message`)   
             - ✨ (`backend`) Save in **MySql** database    
         - ❌ Link in navbar    
-- ❌ Header
-    - ❌ 👤 **Kevin** Convert header, layout, about page to typescript 
 - ❌ Navbar 
     - ❌ 👤 **Anton** Logo to the left   
     - ❌ The active page must be highlighted    
@@ -31,8 +32,6 @@
     ❌ Copyright text  
 - ❌ 👤 **Kevin** At least one **image** present on any of the pages
     - 💡 Consistent background image?   
-- ❌ TailWind CSS  
-    - ❌ 👤 **Kevin**  Convert all CSS to tailwind
 - ❌ API anrop till backend?  
 - ❌ Planera Agilt workflow?  
 - ❌ Netlify hosting?  
