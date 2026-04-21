@@ -1,10 +1,11 @@
 import { APP_CONSTANTS } from "@/utils/constants/app-constants";
+import { JSX } from "react";
 
 export const metadata = {
   title: "About",
 };
 
-const About = () => {
+const About = (): JSX.Element => {
   return (
     <article
       className="flex-column-relative w-100 justify-start"
@@ -26,9 +27,9 @@ const About = () => {
         }}
       >
         <p>
-          This is a experimental project for managing platforms as an admin. The
-          project allows you to manage users, perform database operations, view
-          logging, and use admin tools.
+          This is an experimental project for managing platforms as an admin.
+          The project allows you to manage users, perform database operations,
+          view logging, and use admin tools.
         </p>
       </section>
     </article>

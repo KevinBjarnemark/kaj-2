@@ -1,11 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { JSX, useState } from "react";
 import { APP_CONSTANTS } from "@/utils/constants/app-constants";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const SVGLogo = ({ hovered }) => {
+interface SVGLogoProps {
+  hovered: boolean;
+}
+
+const SVGLogo = ({ hovered }: SVGLogoProps): JSX.Element => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -31,8 +35,8 @@ const SVGLogo = ({ hovered }) => {
   );
 };
 
-const Logo = () => {
-  const [hovered, setHovered] = useState(false);
+const Logo = (): JSX.Element => {
+  const [hovered, setHovered] = useState<boolean>(false);
 
   return (
     <Link
@@ -58,7 +62,7 @@ const Logo = () => {
           marginTop: "3px",
         }}
       >
-        <SVGLogo {...{ hovered }} />
+        <SVGLogo hovered={hovered} />
       </div>
       <p
         className="flex-column-relative center"
@@ -75,8 +79,8 @@ const Logo = () => {
   );
 };
 
-const AboutLink = () => {
-  const [hovered, setHovered] = useState(false);
+const AboutLink = (): JSX.Element => {
+  const [hovered, setHovered] = useState<boolean>(false);
   const pathname = usePathname();
   const isAboutPage = pathname.startsWith("/about");
 
@@ -102,7 +106,7 @@ const AboutLink = () => {
   );
 };
 
-const Header = () => {
+const Header = (): JSX.Element => {
   return (
     <header
       className="flex-column-fixed w-100 top-0"
@@ -113,7 +117,6 @@ const Header = () => {
     >
       <section className="flex-column-relative center w-100">
         <Logo />
-
         <AboutLink />
       </section>
     </header>

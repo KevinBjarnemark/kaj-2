@@ -1,8 +1,7 @@
 import ApiContext from "@/context/ApiContext";
-import { ChangeEvent, useContext, useState } from "react";
-import style from './UserForms.module.css';
+import { ChangeEvent, JSX, useContext, useState } from "react";
+import style from "./UserForms.module.css";
 import SubmitButton from "@/components/buttons/SubmitButton";
-
 
 interface UpdateUserData {
   id: string | null;
@@ -20,7 +19,7 @@ interface CreateUserData {
   password: string | null;
 }
 
-export const UpdateUserByIdForm  = () => {
+export const UpdateUserByIdForm = (): JSX.Element => {
   const { updateUserById, loadingApi } = useContext(ApiContext);
 
   const [data, setData] = useState<UpdateUserData>({
@@ -41,8 +40,19 @@ export const UpdateUserByIdForm  = () => {
   return (
     <>
       <h4>Update user</h4>
-      <input {...sharedProps} style={{ width: "60%", marginRight: "2%" }} name="id" type="number" placeholder="ID" />
-      <input {...sharedProps} name="username" type="text" placeholder="Username" />
+      <input
+        {...sharedProps}
+        style={{ width: "60%", marginRight: "2%" }}
+        name="id"
+        type="number"
+        placeholder="ID"
+      />
+      <input
+        {...sharedProps}
+        name="username"
+        type="text"
+        placeholder="Username"
+      />
       <input {...sharedProps} name="email" type="text" placeholder="Email" />
       <SubmitButton
         onClick={() => updateUserById(data)}
@@ -52,7 +62,7 @@ export const UpdateUserByIdForm  = () => {
   );
 };
 
-export const GetUserByIdForm = () => {
+export const GetUserByIdForm = (): JSX.Element => {
   const { getUserById, loadingApi } = useContext(ApiContext);
 
   const [data, setData] = useState<GetDeleteUserData>({ id: null });
@@ -78,7 +88,7 @@ export const GetUserByIdForm = () => {
   );
 };
 
-export const DeleteUserByIdForm = () => {
+export const DeleteUserByIdForm = (): JSX.Element => {
   const { deleteUserById, loadingApi } = useContext(ApiContext);
 
   const [data, setData] = useState<GetDeleteUserData>({ id: null });
@@ -104,7 +114,7 @@ export const DeleteUserByIdForm = () => {
   );
 };
 
-export const CreateUserForm = () => {
+export const CreateUserForm = (): JSX.Element => {
   const { createUser, loadingApi } = useContext(ApiContext);
 
   const [data, setData] = useState<CreateUserData>({
@@ -125,13 +135,20 @@ export const CreateUserForm = () => {
   return (
     <>
       <h4>Create user</h4>
-      <input {...sharedProps} name="username" type="text" placeholder="Username" />
-      <input {...sharedProps} name="email" type="text" placeholder="Email" />
-      <input {...sharedProps} name="password" type="password" placeholder="Password" />
-      <SubmitButton
-        onClick={() => createUser(data)}
-        disabled={loadingApi}
+      <input
+        {...sharedProps}
+        name="username"
+        type="text"
+        placeholder="Username"
       />
+      <input {...sharedProps} name="email" type="text" placeholder="Email" />
+      <input
+        {...sharedProps}
+        name="password"
+        type="password"
+        placeholder="Password"
+      />
+      <SubmitButton onClick={() => createUser(data)} disabled={loadingApi} />
     </>
   );
 };

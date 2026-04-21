@@ -3,6 +3,12 @@ import "./utilities.css";
 import { APP_CONSTANTS } from "@/utils/constants/app-constants";
 import Header from "@/components/layout/Header";
 import ApiProvider from "@/context/ApiProvider";
+import { JSX } from "react";
+
+interface RootLayoutProps {
+  // ❕ `React.ReactNode` accepts anything that can be rendered
+  children: React.ReactNode;
+}
 
 export const metadata = {
   title: {
@@ -11,7 +17,7 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }) {
+const RootLayout = ({ children }: RootLayoutProps): JSX.Element => {
   return (
     <html lang="en">
       <body className="flex-column-relative center w-100">
@@ -27,4 +33,6 @@ export default function RootLayout({ children }) {
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;
