@@ -14,7 +14,7 @@ const SVGLogo = ({ hovered }: SVGLogoProps): JSX.Element => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlSpace="preserve"
-      className="flex-column-relative center w-100 h-100 shape-soft"
+      className="flex-column-relative center w-full h-full rounded"
       style={{
         fillRule: "evenodd",
         clipRule: "evenodd",
@@ -109,13 +109,13 @@ const AboutLink = (): JSX.Element => {
 const Header = (): JSX.Element => {
   return (
     <header
-      className="flex-column-fixed w-100 top-0"
+      className="flex-column-fixed w-full top-0"
       style={{
         height: `${APP_CONSTANTS.DIMENSIONS.HEADER.HEIGHT}px`,
         borderBottom: "4px solid #34383bff",
       }}
     >
-      <section className="flex-column-relative center w-100">
+      <section className="flex-column-relative center w-full">
         <Logo />
         <AboutLink />
       </section>

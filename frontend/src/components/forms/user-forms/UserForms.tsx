@@ -33,7 +33,7 @@ export const UpdateUserByIdForm = (): JSX.Element => {
   };
 
   const sharedProps = {
-    className: "flex-column-relative center w-100 h-100 " + style["input"],
+    className: "flex-column-relative center w-full h-full " + style["input"],
     onChange: handleChange,
   };
 
@@ -72,7 +72,7 @@ export const GetUserByIdForm = (): JSX.Element => {
   };
 
   const sharedProps = {
-    className: "flex-column-relative center w-100 h-100 " + style["input"],
+    className: "flex-column-relative center w-full h-full " + style["input"],
     onChange: handleChange,
   };
 
@@ -98,7 +98,7 @@ export const DeleteUserByIdForm = (): JSX.Element => {
   };
 
   const sharedProps = {
-    className: "flex-column-relative center w-100 h-100 " + style["input"],
+    className: "flex-column-relative center w-full h-full " + style["input"],
     onChange: handleChange,
   };
 
@@ -128,7 +128,7 @@ export const CreateUserForm = (): JSX.Element => {
   };
 
   const sharedProps = {
-    className: "flex-column-relative center w-100 h-100 " + style["input"],
+    className: "flex-column-relative center w-full h-full " + style["input"],
     onChange: handleChange,
   };
 

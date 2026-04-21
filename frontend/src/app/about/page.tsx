@@ -8,20 +8,20 @@ export const metadata = {
 const About = (): JSX.Element => {
   return (
     <article
-      className="flex-column-relative w-100 justify-start"
+      className="flex-column-relative w-full justify-start"
       style={{
         padding: "2vh 2vw",
         minHeight: `calc(100vh - ${APP_CONSTANTS.DIMENSIONS.HEADER.HEIGHT}px)`,
       }}
     >
-      <section className="flex-column-relative w-100 align-center justify-start">
+      <section className="flex-column-relative w-full items-center justify-start">
         <h2 style={{ marginTop: "20px", textDecoration: "underline" }}>
           About
         </h2>
       </section>
 
       <section
-        className="flex-column-relative w-100 start"
+        className="flex-column-relative w-full start"
         style={{
           width: "96%",
         }}

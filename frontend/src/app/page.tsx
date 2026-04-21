@@ -14,8 +14,8 @@ const AdminDashBoard = (): JSX.Element => {
   const spacing = "38px";
 
   return (
-    <div className="flex-column-relative w-100 start">
-      <div className="flex-row-relative w-100">
+    <div className="flex-column-relative w-full start">
+      <div className="flex-row-relative center w-full">
         <div
           className="flex-column-relative center"
           style={{ width: "45vw", marginRight: "15vw" }}
@@ -27,7 +27,10 @@ const AdminDashBoard = (): JSX.Element => {
         </div>
       </div>
 
-      <div className="flex-row-relative w-100" style={{ marginTop: spacing }}>
+      <div
+        className="flex-row-relative center w-full"
+        style={{ marginTop: spacing }}
+      >
         <div
           className="flex-column-relative center"
           style={{ width: "45vw", marginRight: "15vw" }}
@@ -39,7 +42,7 @@ const AdminDashBoard = (): JSX.Element => {
         </div>
       </div>
 
-      <div className="flex-row-relative w-100" style={{ marginTop: spacing }}>
+      <div className="flex-row-relative w-full" style={{ marginTop: spacing }}>
         <div
           className="flex-column-relative center"
           style={{ width: "45vw", marginRight: "15vw" }}
@@ -58,7 +61,7 @@ const AdminDashBoard = (): JSX.Element => {
 const Home = (): JSX.Element => {
   return (
     <article
-      className="flex-column-relative w-100 justify-start"
+      className="flex-column-relative w-full justify-start"
       style={{
         padding: "2vh 2vw",
         minHeight: `calc(100vh - ${APP_CONSTANTS.DIMENSIONS.HEADER.HEIGHT}px)`,

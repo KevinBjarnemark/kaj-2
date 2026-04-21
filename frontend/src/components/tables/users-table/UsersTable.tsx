@@ -22,21 +22,39 @@ export const UsersTable = () => {
         label="Show usernames"
       />
       <div
-        className="flex-column-relative w-100"
-        style={{ height: "200px", overflowY: "auto", backgroundColor: "#212324ff", padding: "0 8px" }}
+        className="flex-column-relative w-full"
+        style={{
+          height: "200px",
+          overflowY: "auto",
+          backgroundColor: "#212324ff",
+          padding: "0 8px",
+        }}
       >
         {users.map((i) => (
           <div key={i.id} className="flex-row-relative">
             <div
-              className="flex-column-row shape-soft text-center"
-              style={{ backgroundColor: "#3b3d3eff", minWidth: "28px", padding: "0 5px", margin: rowMargin, color: "#989fa1ff" }}
+              className="flex-column-row rounded text-center"
+              style={{
+                backgroundColor: "#3b3d3eff",
+                minWidth: "28px",
+                padding: "0 5px",
+                margin: rowMargin,
+                color: "#989fa1ff",
+              }}
             >
               <span style={{ fontSize: "12px", color: "#585c5eff" }}>#</span>
               {i.id}
             </div>
             <div
-              className="flex-column-row shape-soft text-center"
-              style={{ margin: rowMargin, fontWeight: "800", fontFamily: '"Lilita One", sans-serif', padding: "0 5px", color: "#b3bbbeff", lineHeight: "30px" }}
+              className="flex-column-row rounded text-center"
+              style={{
+                margin: rowMargin,
+                fontWeight: "800",
+                fontFamily: '"Lilita One", sans-serif',
+                padding: "0 5px",
+                color: "#b3bbbeff",
+                lineHeight: "30px",
+              }}
             >
               {i.username}
             </div>

@@ -24,7 +24,7 @@ const SubmitButton = ({
         bg-[#65696b] hover:bg-[#7c8184]
         py-0 px-[6px]
         ${className}
-      `.trim()}
+      `}
       style={style}
       {...rest}
     >
