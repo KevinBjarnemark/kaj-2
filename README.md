@@ -7,7 +7,8 @@
 - ⛔️ [Known Issues](#known-issues)
 
 ### Avklarade uppdrag  
-- ✔️ Convert to TypeScript and TailWind
+- ✔️ Convert to TypeScript and TailWind  
+- ✔️ Planera Agilt workflow?  
 
 ### Uppdrag  
 - 👤 **Stoffe**  
@@ -17,23 +18,21 @@
         - ❌ Link in navbar    
 - ❌ Navbar 
     - ❌ 👤 **Anton** Logo to the left   
-    - ❌ The active page must be highlighted    
-    - ❌ Remove list bullet points with CSS   
-    - ❌ All items must be centered  
-    - ❌ Padding (left and right)  
-    - ❌ Must be horizontal  
-    - ❌ Hover effect on links       
+    - ❌ 👤 **Kevin** The active page must be highlighted    
+    - ❌ 👤 **Kevin** Remove list bullet points with CSS   
+    - ❌ 👤 **Kevin** All items must be centered  
+    - ❌ 👤 **Kevin** Padding (left and right)  
+    - ❌ 👤 **Kevin** Must be horizontal  
+    - ❌ 👤 **Kevin** Hover effect on links       
 - ❌ 👤 **Jakob** Auth / Login    
     - ✨ Authentication with JWT   
-    - ❌ Login button    
-        - ❌ Must stand out amongst other elements      
-- ❌ Footer  
+    - ❌ 👤 **Jakob** Login button    
+        - ❌ 👤 **Jakob** Must stand out amongst other elements      
+- ❌ 👤 **Kevin** Footer  
     - ❕ Must be reusable    
-    ❌ Copyright text  
-- ❌ 👤 **Kevin** At least one **image** present on any of the pages
+    - ❌ 👤 **Kevin** Copyright text  
+- ❌ 👤 **Anton** At least one **image** present on any of the pages
     - 💡 Consistent background image?   
-- ❌ API anrop till backend?  
-- ❌ Planera Agilt workflow?  
 - ❌ Netlify hosting?  
 - ✨ Dropdown selection för alla funktioner   
 
