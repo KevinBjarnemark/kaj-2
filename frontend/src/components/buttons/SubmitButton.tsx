@@ -1,7 +1,10 @@
-import { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, JSX } from "react";
 
+// ❕ By extending ButtonHTMLAttributes<HTMLButtonElement>,
+//     you inherit ALL standard button props (onClick, style,
+//     className, etc., ).
 interface SubmitButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  label?: string;
+  label?: string; // ❕ Label is the only non-standard button prop
 }
 
 const SubmitButton = ({
@@ -10,9 +13,8 @@ const SubmitButton = ({
   style,
   children,
   ...rest
-}: SubmitButtonProps) => {
-
-return (
+}: SubmitButtonProps): JSX.Element => {
+  return (
     <button
       className={`
         flex-column-relative center
@@ -22,7 +24,7 @@ return (
         bg-[#65696b] hover:bg-[#7c8184]
         py-0 px-[6px]
         ${className}
-      `.trim()}
+      `}
       style={style}
       {...rest}
     >

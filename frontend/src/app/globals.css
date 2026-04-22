@@ -1,5 +1,5 @@
 /* ❕ Partial importing of tailwind, ignores defaults. 
-    - This is a legit startegy for precise customizing 
+    - This is a legit strategy for precise customizing 
     of the app.  
 */
 @import "tailwindcss/theme";
@@ -61,6 +61,11 @@
   font-display: swap;
 }
 
+:root {
+  --background: #2a2f32;
+  --header-background: #2a2f32;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -68,11 +73,6 @@
   font-family: "Niramit", sans-serif;
   text-align: left; /* Assuming this enhances compatability */
   color: #9fa7ad;
-}
-
-:root {
-  --background: #2a2f32;
-  --header-background: #2a2f32;
 }
 
 nav {
