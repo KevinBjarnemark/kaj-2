@@ -106,6 +106,34 @@ const AboutLink = (): JSX.Element => {
   );
 };
 
+const ContactLink = (): JSX.Element => {
+  const [hovered, setHovered] = useState<boolean>(false);
+  const pathname = usePathname();
+  const isContactPage = pathname.startsWith("/contact");
+
+  return (
+    <Link
+      onMouseEnter={() => {
+        setHovered(true);
+      }}
+      onMouseLeave={() => {
+        setHovered(false);
+      }}
+      href="/contact"
+      rel="noopener noreferrer"
+      className="flex-column-absolute"
+      style={{
+        right: "10vw",
+        bottom: 0,
+        color: hovered || isContactPage ? "#ffffff" : "#686f72ff",
+      }}
+    >
+      Contact
+    </Link>
+  );
+};
+
+
 const Header = (): JSX.Element => {
   return (
     <header
@@ -118,6 +146,7 @@ const Header = (): JSX.Element => {
       <section className="flex-column-relative center w-full">
         <Logo />
         <AboutLink />
+        <ContactLink />
       </section>
     </header>
   );
