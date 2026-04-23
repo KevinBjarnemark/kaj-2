@@ -13,3 +13,5 @@ scratch/
 *.ipr
 
 .vscode/
+
+/.prettierrc

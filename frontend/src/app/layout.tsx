@@ -1,6 +1,5 @@
 import "./globals.css";
 import "./utilities.css";
-
 import { APP_CONSTANTS } from "@/utils/constants/app-constants";
 import Header from "@/components/layout/Header";
 import ApiProvider from "@/context/ApiProvider";
@@ -19,6 +18,8 @@ export const metadata = {
 };
 
 const RootLayout = ({ children }: RootLayoutProps): JSX.Element => {
+  const marginTop = APP_CONSTANTS.DIMENSIONS.HEADER.HEIGHT;
+
   return (
     <html lang="en">
       <body className="flex-column-relative center w-full">
@@ -26,7 +27,7 @@ const RootLayout = ({ children }: RootLayoutProps): JSX.Element => {
         <main
           className="flex-column-relative w-full"
           style={{
-            marginTop: `${APP_CONSTANTS.DIMENSIONS.HEADER.HEIGHT}px`,
+            marginTop: `${marginTop}px`,
           }}
         >
           <ApiProvider>{children}</ApiProvider>
