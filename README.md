@@ -11,6 +11,7 @@
 - ✔️ Planera Agilt workflow?  
 - ✔️ Contact page with link in navbar  
 - ✔️ Navbar  
+- ✔️ Footer  
 
 ### Uppdrag  
 - ❌ Contact page  
@@ -19,9 +20,6 @@
     - ✨ Authentication with JWT   
     - ❌ 👤 **Jakob** Login button    
         - ❌ 👤 **Jakob** Must stand out amongst other elements      
-- ❌ 👤 **Kevin** Footer  
-    - ❕ Must be reusable    
-    - ❌ 👤 **Kevin** Copyright text  
 - ❌ 👤 **Anton** At least one **image** present on any of the pages
     - 💡 Consistent background image?   
 - ❌ Netlify hosting?  
