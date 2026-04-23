@@ -11,7 +11,8 @@ interface NavLinkProps {
 const NavLink = ({ endPoint }: NavLinkProps): JSX.Element => {
     const [hovered, setHovered] = useState<boolean>(false);
     const pathname = usePathname();
-    const isCurrentPage = endPoint && pathname.startsWith(`/${endPoint}`);
+    const isHomePage = pathname === "/";
+    const isCurrentPage = pathname.startsWith(`/${endPoint}`);
 
     return (
         <li className="flex-row-relative mr-8 h-5">
@@ -34,9 +35,7 @@ const NavLink = ({ endPoint }: NavLinkProps): JSX.Element => {
                     <HomeIcon
                         width="24"
                         height="24"
-                        fill={
-                            hovered || isCurrentPage ? "#ffffff" : "#686f72ff"
-                        }
+                        fill={isHomePage ? "#ffffff" : "#686f72ff"}
                     />
                 ) : (
                     endPoint.charAt(0).toUpperCase() + endPoint.slice(1)
@@ -47,11 +46,9 @@ const NavLink = ({ endPoint }: NavLinkProps): JSX.Element => {
 };
 
 const Links = (): JSX.Element => {
-    const pathname = usePathname();
-
     return (
         <ul className="flex-row-relative justify-end w-full pr-8">
-            {pathname !== "/" ? <NavLink endPoint="" /> : null}
+            <NavLink endPoint="" />
             <NavLink endPoint="about" />
             <NavLink endPoint="contact" />
         </ul>
@@ -65,7 +62,7 @@ const NavBar = () => {
         <nav
             className={
                 "flex-column-absolute right-0 bottom-0 " +
-                "text-center center w-2/5"
+                "text-center center w-3/4"
             }
             style={{
                 height: `${height}px`,

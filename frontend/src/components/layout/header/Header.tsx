@@ -13,7 +13,7 @@ const Logo = (): JSX.Element => {
         <Link
             href="/"
             rel="noopener noreferrer"
-            className="flex-column-relative align-center w-[140px]"
+            className="flex-column-relative center w-[140px]"
             style={{
                 height: `${APP_CONSTANTS.DIMENSIONS.HEADER.HEIGHT - 5}px`,
             }}
@@ -58,7 +58,7 @@ const Header = (): JSX.Element => {
                 height: `${height}px`,
             }}
         >
-            <section className="flex-column-relative center w-full">
+            <section className="flex-column-relative start w-full">
                 <Logo />
                 <NavBar />
             </section>
