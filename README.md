@@ -9,19 +9,12 @@
 ### Avklarade uppdrag  
 - ✔️ Convert to TypeScript and TailWind  
 - ✔️ Planera Agilt workflow?  
-- ✔️ Contact page with link in navbar
+- ✔️ Contact page with link in navbar  
+- ✔️ Navbar  
 
 ### Uppdrag  
 - ❌ Contact page  
-    - ✨ (`backend`) Save in **MySql** database 
-- ❌ Navbar  
-    - ❌ 👤 **Anton** Logo to the left   
-    - ❌ 👤 **Kevin** The active page must be highlighted    
-    - ❌ 👤 **Kevin** Remove list bullet points with CSS   
-    - ❌ 👤 **Kevin** All items must be centered  
-    - ❌ 👤 **Kevin** Padding (left and right)  
-    - ❌ 👤 **Kevin** Must be horizontal  
-    - ❌ 👤 **Kevin** Hover effect on links       
+    - ✨ (`backend`) Save in **MySql** database     
 - ❌ 👤 **Jakob** Auth / Login    
     - ✨ Authentication with JWT   
     - ❌ 👤 **Jakob** Login button    
