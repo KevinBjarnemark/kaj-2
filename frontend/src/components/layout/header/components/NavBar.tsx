@@ -2,7 +2,7 @@ import { APP_CONSTANTS } from "@/utils/constants/app-constants";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { JSX, useState } from "react";
-import HomeIcon from "../icons/svg/HomeIcon";
+import HomeIcon from "@/components/icons/svg/HomeIcon";
 
 interface NavLinkProps {
     endPoint: string;
