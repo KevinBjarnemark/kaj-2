@@ -66,91 +66,78 @@
   --header-background: #2a2f32;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Niramit", sans-serif;
-  text-align: left; /* Assuming this enhances compatability */
-  color: #9fa7ad;
-}
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Niramit", sans-serif;
+    text-align: left;
+    color: #9fa7ad;
+  }
 
-nav {
-  z-index: 26;
-  text-align: center;
-  left: 0;
-  min-height: 100vh;
-  max-height: 100vh;
-}
+  header {
+    z-index: 1;
+    background-color: var(--header-background);
+  }
 
-header {
-  z-index: 15;
-  border: 0 transparent;
-  border-radius: var(--border-radius);
-  background-color: var(--header-background);
-}
+  article {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    min-width: 100%;
+    max-width: 100%;
+    background-color: var(--background);
+  }
 
-article {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: center;
-  position: relative;
-  text-align: center;
-  min-width: 100%;
-  max-width: 100%;
-  min-height: fit-content;
-  max-height: fit-content;
-  border: 0 transparent;
-  background-color: var(--background);
-}
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    position: relative;
+    text-align: center;
+    border: 0 transparent;
+    border-radius: var(--border-radius);
+  }
 
-footer {
-  z-index: 4;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: flex-end;
-  position: relative;
-  text-align: center;
-  border: 0 transparent;
-  border-radius: var(--border-radius);
-  background-color: #ffffff;
-}
+  a {
+    text-decoration: none;
+  }
 
-a {
-  text-decoration: none;
-}
+  button {
+    border: 0 transparent;
+    cursor: pointer;
+    text-decoration: none;
+  }
 
-button {
-  border: 0 transparent;
-  cursor: pointer;
-  text-decoration: none;
-}
+  select {
+    border: 0 transparent;
+    background-color: transparent;
+    cursor: pointer;
+    text-decoration: none;
+  }
 
-select {
-  border: 0 transparent;
-  background-color: transparent;
-  cursor: pointer;
-  text-decoration: none;
-}
+  input {
+    background-color: transparent;
+    border: 0 transparent;
+    outline: none;
+  }
 
-input {
-  background-color: transparent;
-  border: 0 transparent;
-  outline: none;
-}
-
-textarea {
-  background-color: transparent;
-  margin: 0;
-  border: 0 transparent;
-  resize: none;
-  word-break: normal;
-  white-space: pre-wrap;
-  outline: none;
-  overflow: auto;
-  cursor: auto;
+  textarea {
+    background-color: transparent;
+    margin: 0;
+    border: 0 transparent;
+    resize: none;
+    word-break: normal;
+    white-space: pre-wrap;
+    outline: none;
+    overflow: auto;
+    cursor: auto;
+  }
 }
 
 :disabled {

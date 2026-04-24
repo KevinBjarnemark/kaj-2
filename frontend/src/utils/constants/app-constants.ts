@@ -5,6 +5,9 @@ export const APP_CONSTANTS = {
     HEADER: {
       HEIGHT: 88, // px
     },
+    NAVBAR: {
+      HEIGHT: 30, // px
+    },
   },
 } as const;
 

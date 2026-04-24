@@ -3,73 +3,65 @@
 import { JSX } from "react";
 import { APP_CONSTANTS } from "@/utils/constants/app-constants";
 import {
-  CreateUserForm,
-  DeleteUserByIdForm,
-  GetUserByIdForm,
-  UpdateUserByIdForm,
+    CreateUserForm,
+    DeleteUserByIdForm,
+    GetUserByIdForm,
+    UpdateUserByIdForm,
 } from "@/components/forms/user-forms/UserForms";
 import { UsersTable } from "@/components/tables/users-table/UsersTable";
 
 const AdminDashBoard = (): JSX.Element => {
-  const spacing = "38px";
+    const spacing = "38px";
 
-  return (
-    <div className="flex-column-relative w-full start">
-      <div className="flex-row-relative center w-full">
-        <div
-          className="flex-column-relative center"
-          style={{ width: "45vw", marginRight: "15vw" }}
-        >
-          <CreateUserForm />
-        </div>
-        <div className="flex-column-relative center" style={{ width: "45vw" }}>
-          <UsersTable />
-        </div>
-      </div>
+    return (
+        <div className="flex-column-relative w-full start">
+            <div className="flex-row-relative center w-full">
+                <div className="flex-column-relative center w-[45vw] mr-[15vw]">
+                    <CreateUserForm />
+                </div>
+                <div className="flex-column-relative center w-[45vw]">
+                    <UsersTable />
+                </div>
+            </div>
 
-      <div
-        className="flex-row-relative center w-full"
-        style={{ marginTop: spacing }}
-      >
-        <div
-          className="flex-column-relative center"
-          style={{ width: "45vw", marginRight: "15vw" }}
-        >
-          <UpdateUserByIdForm />
-        </div>
-        <div className="flex-column-relative center" style={{ width: "45vw" }}>
-          <GetUserByIdForm />
-        </div>
-      </div>
+            <div
+                className="flex-row-relative center w-full"
+                style={{ marginTop: spacing }}
+            >
+                <div className="flex-column-relative center w-[45vw] mr-[15vw]">
+                    <UpdateUserByIdForm />
+                </div>
+                <div className="flex-column-relative center w-[45vw]">
+                    <GetUserByIdForm />
+                </div>
+            </div>
 
-      <div className="flex-row-relative w-full" style={{ marginTop: spacing }}>
-        <div
-          className="flex-column-relative center"
-          style={{ width: "45vw", marginRight: "15vw" }}
-        >
-          <DeleteUserByIdForm />
+            <div
+                className="flex-row-relative w-full"
+                style={{ marginTop: spacing }}
+            >
+                <div className="flex-column-relative center w-[45vw] mr-[15vw]">
+                    <DeleteUserByIdForm />
+                </div>
+            </div>
         </div>
-        <div
-          className="flex-column-relative center"
-          style={{ width: "45vw" }}
-        />
-      </div>
-    </div>
-  );
+    );
 };
 
 const Home = (): JSX.Element => {
-  return (
-    <article
-      className="flex-column-relative w-full justify-start"
-      style={{
-        padding: "2vh 2vw",
-        minHeight: `calc(100vh - ${APP_CONSTANTS.DIMENSIONS.HEADER.HEIGHT}px)`,
-      }}
-    >
-      <AdminDashBoard />
-    </article>
-  );
+    return (
+        <article
+            className={
+                "flex-column-relative w-full justify-start " +
+                "px-[2vw] py-[2vh]"
+            }
+            style={{
+                minHeight: `calc(100vh - ${APP_CONSTANTS.DIMENSIONS.HEADER.HEIGHT}px)`,
+            }}
+        >
+            <AdminDashBoard />
+        </article>
+    );
 };
 
 export default Home;
