@@ -5,6 +5,7 @@ import { APP_CONSTANTS } from "@/utils/constants/app-constants";
 import Link from "next/link";
 import NavBar from "./components/NavBar";
 import LogoIcon from "../../icons/svg/LogoIcon";
+import LogInButton from "./components/LogInButton";
 
 const Logo = (): JSX.Element => {
     const [hovered, setHovered] = useState<boolean>(false);
@@ -65,6 +66,7 @@ const Header = (): JSX.Element => {
                 }
             >
                 <Logo />
+                <LogInButton />
                 <NavBar />
             </section>
         </header>
