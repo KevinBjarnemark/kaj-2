@@ -2,8 +2,8 @@
 
 import ApiContext from "@/context/ApiContext";
 import { ChangeEvent, JSX, useContext, useState } from "react";
-import style from "./LoginForm.module.css";
 import SubmitButton from "@/components/buttons/SubmitButton";
+import { STYLES } from "@/utils/constants/styles";
 
 interface LogInData {
     username: string | null;
@@ -23,7 +23,7 @@ const LogInForm = (): JSX.Element => {
     };
 
     const sharedProps = {
-        className: "flex-column-relative center w-full " + style["input"],
+        className: STYLES.INPUT.BASE,
         onChange: handleChange,
     };
 
