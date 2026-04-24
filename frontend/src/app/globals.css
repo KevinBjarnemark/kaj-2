@@ -63,7 +63,6 @@
 
 :root {
   --background: #2a2f32;
-  --header-background: #2a2f32;
 }
 
 @layer base {
@@ -90,18 +89,13 @@
     text-align: center;
     min-width: 100%;
     max-width: 100%;
-    background-color: var(--background);
   }
 
   footer {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-end;
     position: relative;
-    text-align: center;
-    border: 0 transparent;
-    border-radius: var(--border-radius);
+    background-color: var(--background);
   }
 
   a {
@@ -114,29 +108,10 @@
     text-decoration: none;
   }
 
-  select {
-    border: 0 transparent;
-    background-color: transparent;
-    cursor: pointer;
-    text-decoration: none;
-  }
-
   input {
     background-color: transparent;
     border: 0 transparent;
     outline: none;
-  }
-
-  textarea {
-    background-color: transparent;
-    margin: 0;
-    border: 0 transparent;
-    resize: none;
-    word-break: normal;
-    white-space: pre-wrap;
-    outline: none;
-    overflow: auto;
-    cursor: auto;
   }
 }
 
