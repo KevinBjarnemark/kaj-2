@@ -66,16 +66,16 @@
   --header-background: #2a2f32;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Niramit", sans-serif;
-  text-align: left; /* Assuming this enhances compatability */
-  color: #9fa7ad;
-}
-
 @layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Niramit", sans-serif;
+    text-align: left;
+    color: #9fa7ad;
+  }
+
   header {
     z-index: 1;
     background-color: var(--header-background);
