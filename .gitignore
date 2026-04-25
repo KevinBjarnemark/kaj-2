@@ -7,6 +7,9 @@ scratch/
 .env.local
 *.env
 
+# Deployment folder
+.netlify
+
 .idea
 *.iws
 *.iml

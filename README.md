@@ -13,6 +13,7 @@
 - ✔️ Navbar  
 - ✔️ Footer  
 - ✔️ Login button  
+- ✔️ Netlify hosting   
 
 ### Uppdrag  
 - ❌ Contact page  
@@ -21,8 +22,9 @@
     - ✨ Authentication with JWT       
 - ❌ 👤 **Anton** At least one **image** present on any of the pages
     - 💡 Consistent background image?   
-- ❌ Netlify hosting?  
-- ✨ Dropdown selection för alla funktioner   
+- ✨ Backend hosting   
+- ✨ Dropdown selection för alla funktioner     
+
 
 ## Introduction     
 _________________________
