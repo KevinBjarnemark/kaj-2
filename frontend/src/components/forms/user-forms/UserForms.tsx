@@ -1,7 +1,7 @@
 import ApiContext from "@/context/ApiContext";
 import { ChangeEvent, JSX, useContext, useState } from "react";
-import style from "./UserForms.module.css";
 import SubmitButton from "@/components/buttons/SubmitButton";
+import { STYLES } from "@/utils/constants/styles";
 
 interface UpdateUserData {
     id: string | null;
@@ -33,8 +33,7 @@ export const UpdateUserByIdForm = (): JSX.Element => {
     };
 
     const sharedProps = {
-        className:
-            "flex-column-relative center w-full h-full " + style["input"],
+        className: STYLES.INPUT.BASE,
         onChange: handleChange,
     };
 
@@ -78,8 +77,7 @@ export const GetUserByIdForm = (): JSX.Element => {
     };
 
     const sharedProps = {
-        className:
-            "flex-column-relative center w-full h-full " + style["input"],
+        className: STYLES.INPUT.BASE,
         onChange: handleChange,
     };
 
@@ -105,8 +103,7 @@ export const DeleteUserByIdForm = (): JSX.Element => {
     };
 
     const sharedProps = {
-        className:
-            "flex-column-relative center w-full h-full " + style["input"],
+        className: STYLES.INPUT.BASE,
         onChange: handleChange,
     };
 
@@ -136,8 +133,7 @@ export const CreateUserForm = (): JSX.Element => {
     };
 
     const sharedProps = {
-        className:
-            "flex-column-relative center w-full h-full " + style["input"],
+        className: STYLES.INPUT.BASE,
         onChange: handleChange,
     };
 

@@ -12,14 +12,13 @@
 - ✔️ Contact page with link in navbar  
 - ✔️ Navbar  
 - ✔️ Footer  
+- ✔️ Login button  
 
 ### Uppdrag  
 - ❌ Contact page  
     - ✨ (`backend`) Save in **MySql** database     
 - ❌ 👤 **Jakob** Auth / Login    
-    - ✨ Authentication with JWT   
-    - ❌ 👤 **Jakob** Login button    
-        - ❌ 👤 **Jakob** Must stand out amongst other elements      
+    - ✨ Authentication with JWT       
 - ❌ 👤 **Anton** At least one **image** present on any of the pages
     - 💡 Consistent background image?   
 - ❌ Netlify hosting?  
