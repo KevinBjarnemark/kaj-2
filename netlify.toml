@@ -1,0 +1,34 @@
+[build]
+  # ❕ Base directory where frontend lives
+  # ❕ Tells Netlify to run all commands from /frontend subdirectory
+  base = "frontend"
+
+  # ❕ Command that Netlify runs to build your site
+  # ❕ 'next build' reads next.config.js and generates the /out directory
+  command = "npm run build"
+  
+  # ❕ Directory where Next.js outputs the static files
+  # ❕ With output: 'export', Next.js creates this automatically
+  publish = "out"
+
+# ❕ Configure redirects for client-side routing
+# ❕ Without this, direct URL access (like /about) returns 404
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# ❕ Headers for security and caching
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # ❕ Prevent clickjacking attacks
+    X-Frame-Options = "DENY"
+    # ❕ Prevent MIME type sniffing
+    X-Content-Type-Options = "nosniff"
+
+# ❕ Cache static assets aggressively   
+[[headers]]
+  for = "/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
