@@ -4,6 +4,7 @@
 ## Table of Contents
 - 💡 [Introduction](#introduction)
 - 🏃‍♂️ [Run the App](#run-the-app)
+- 🚀 [Deploy the app](#deploy-the-app)
 - ⛔️ [Known Issues](#known-issues)
 
 ### Avklarade uppdrag  
@@ -78,3 +79,12 @@ _________________________
 
 ## Known Issues  
 - __________ 
+
+## Deploy the app  
+- ❕ Replace `1.0.0` with the actual version  
+- 🖥️ `git tag frontend/v1.0.0`  
+    - ❕ Create a git tag locally  
+- 🖥️ `git push origin frontend/v1.0.0`  
+    - ❕ Push the tag to remote repo    
+- ❕ This triggers a workflow using GitHub Actions  
+
