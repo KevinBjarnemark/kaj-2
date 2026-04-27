@@ -47,6 +47,7 @@ jobs:
           NEXT_PUBLIC_BACKEND_URL: ${{ secrets.NEXT_PUBLIC_BACKEND_URL }}
 
       - name: Deploy to Netlify
-        run: npx netlify-cli deploy --prod --dir=out
+        run: npx netlify-cli deploy --prod --dir=out --site=${{ secrets.NETLIFY_PROJECT_ID }}
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_PROJECT_ID: ${{ secrets.NETLIFY_PROJECT_ID }}

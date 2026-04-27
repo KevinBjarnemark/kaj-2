@@ -2,10 +2,7 @@
   # ❕ Base directory where frontend lives
   # ❕ Tells Netlify to run all commands from /frontend subdirectory
   base = "frontend"
-
-  # ❕ Also known as site ID (this is NOT a secret)
-  site_id = "3e89d072-cb2b-4c7c-87a9-85d6fd3e239a"  
-
+  
   # ❕ Command that Netlify runs to build your site
   # ❕ 'next build' reads next.config.js and generates the /out directory
   command = "npm run build"
