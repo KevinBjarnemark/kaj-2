@@ -50,4 +50,3 @@ jobs:
         run: npx netlify-cli deploy --prod --dir=out
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_PROJECT_ID: ${{ secrets.NETLIFY_PROJECT_ID }}
