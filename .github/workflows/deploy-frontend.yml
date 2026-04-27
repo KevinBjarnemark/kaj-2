@@ -16,16 +16,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # ❕ Full history — safe default if build reads git metadata
+
       - name: Verify tag is on main # ⚠️ SECURITY STEP - Only deploy from main
         working-directory: .  # ❕ Override: run from repo root
         run: |
           git fetch origin main
           git merge-base --is-ancestor ${{ github.sha }} origin/main || (echo "Tag must be on main" && exit 1)
-
-      - name: Check out code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 # ❕ Full history — safe default if build reads git metadata
 
       - name: Setup Node
         uses: actions/setup-node@v4
