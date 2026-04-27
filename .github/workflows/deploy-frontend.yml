@@ -17,10 +17,11 @@ jobs:
     steps:
 
       - name: Verify tag is on main # ⚠️ SECURITY STEP - Only deploy from main
+        working-directory: .  # ❕ Override: run from repo root
         run: |
           git fetch origin main
           git merge-base --is-ancestor ${{ github.sha }} origin/main || (echo "Tag must be on main" && exit 1)
-          
+
       - name: Check out code
         uses: actions/checkout@v4
         with:
@@ -42,6 +43,8 @@ jobs:
 
       - name: Build
         run: npm run build
+        env: # ❕ Client-side .env variables 
+          NEXT_PUBLIC_BACKEND_URL: ${{ secrets.NEXT_PUBLIC_BACKEND_URL }}
 
       - name: Deploy to Netlify
         run: npx netlify-cli deploy --prod --dir=out
