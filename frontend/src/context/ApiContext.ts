@@ -25,16 +25,14 @@ export interface UserDto {
     createdAt: string; // ❕ Java serializes dates as ISO strings by default
 }
 
-// ❕ The `| null` is because these functions may return null
-// if another request is not processed yet.
 export interface ApiContextType {
-    loadingApi: boolean;
-    createUser: (data: CreateUserData) => Promise<UserDto | null>;
+    loadingApi: string[];
+    createUser: (data: CreateUserData) => Promise<UserDto>;
     getAllUsers: () => Promise<UserDto[]>;
-    updateUserById: (data: UpdateUserData) => Promise<UserDto | null>;
-    getUserById: (id: string | null) => Promise<UserDto | null>;
-    deleteUserById: (id: string | null) => Promise<Response | null>;
-    login: (data: LogInData) => Promise<UserDto | null>;
+    updateUserById: (data: UpdateUserData) => Promise<UserDto>;
+    getUserById: (id: string | null) => Promise<UserDto>;
+    deleteUserById: (id: string | null) => Promise<Response>;
+    login: (data: LogInData) => Promise<UserDto>;
 }
 
 const ApiContext = createContext<ApiContextType | null>(null);

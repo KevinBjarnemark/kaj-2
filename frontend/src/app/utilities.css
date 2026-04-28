@@ -1,69 +1,75 @@
+:root {
+    --header-height: 88px;
+    --footer-height: 88px;
+    --navbar-height: 30px;
+}
+
 .flex-row-relative {
-  display: flex;
-  flex-direction: row;
-  position: relative;
+    display: flex;
+    flex-direction: row;
+    position: relative;
 }
 
 .flex-column-relative {
-  display: flex;
-  flex-direction: column;
-  position: relative;
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }
 
 .flex-row-absolute {
-  display: flex;
-  flex-direction: row;
-  position: absolute;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
 }
 
 .flex-column-absolute {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
 }
 
 .flex-column-fixed {
-  display: flex;
-  flex-direction: column;
-  position: fixed;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
 }
 
 .flex-row-fixed {
-  display: flex;
-  flex-direction: row;
-  position: fixed;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
 }
 
 .center {
-  align-items: center;
-  justify-content: center;
+    align-items: center;
+    justify-content: center;
 }
 .start {
-  align-items: flex-start;
-  justify-content: flex-start;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 .absolute-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .border-thin {
-  border: 1px solid;
+    border: 1px solid;
 }
 
 .hover-underline:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .no-select {
-  user-select: none;
-  -webkit-user-select: none; /* Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE/Edge */
+    user-select: none;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE/Edge */
 }
 
 .no-click {
-  pointer-events: none;
+    pointer-events: none;
 }

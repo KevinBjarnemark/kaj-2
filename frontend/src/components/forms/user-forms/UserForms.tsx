@@ -1,7 +1,7 @@
-import ApiContext from "@/context/ApiContext";
-import { ChangeEvent, JSX, useContext, useState } from "react";
+import { ChangeEvent, JSX, useState } from "react";
 import SubmitButton from "@/components/buttons/SubmitButton";
 import { STYLES } from "@/utils/constants/styles";
+import useApi from "@/hooks/api/useApi";
 
 interface UpdateUserData {
     id: string | null;
@@ -20,7 +20,7 @@ interface CreateUserData {
 }
 
 export const UpdateUserByIdForm = (): JSX.Element => {
-    const { updateUserById, loadingApi } = useContext(ApiContext);
+    const api = useApi();
 
     const [data, setData] = useState<UpdateUserData>({
         id: null,
@@ -59,16 +59,13 @@ export const UpdateUserByIdForm = (): JSX.Element => {
                 type="text"
                 placeholder="Email"
             />
-            <SubmitButton
-                onClick={() => updateUserById(data)}
-                disabled={loadingApi}
-            />
+            <SubmitButton onClick={() => api.updateUserById(data)} />
         </>
     );
 };
 
 export const GetUserByIdForm = (): JSX.Element => {
-    const { getUserById, loadingApi } = useContext(ApiContext);
+    const api = useApi();
 
     const [data, setData] = useState<GetDeleteUserData>({ id: null });
 
@@ -85,16 +82,13 @@ export const GetUserByIdForm = (): JSX.Element => {
         <>
             <h4>Get user</h4>
             <input {...sharedProps} name="id" type="number" placeholder="ID" />
-            <SubmitButton
-                onClick={() => getUserById(data.id)}
-                disabled={loadingApi}
-            />
+            <SubmitButton onClick={() => api.getUserById(data.id)} />
         </>
     );
 };
 
 export const DeleteUserByIdForm = (): JSX.Element => {
-    const { deleteUserById, loadingApi } = useContext(ApiContext);
+    const api = useApi();
 
     const [data, setData] = useState<GetDeleteUserData>({ id: null });
 
@@ -111,16 +105,13 @@ export const DeleteUserByIdForm = (): JSX.Element => {
         <>
             <h4>Delete user</h4>
             <input {...sharedProps} name="id" type="number" placeholder="ID" />
-            <SubmitButton
-                onClick={() => deleteUserById(data.id)}
-                disabled={loadingApi}
-            />
+            <SubmitButton onClick={() => api.deleteUserById(data.id)} />
         </>
     );
 };
 
 export const CreateUserForm = (): JSX.Element => {
-    const { createUser, loadingApi } = useContext(ApiContext);
+    const api = useApi();
 
     const [data, setData] = useState<CreateUserData>({
         username: null,
@@ -158,10 +149,7 @@ export const CreateUserForm = (): JSX.Element => {
                 type="password"
                 placeholder="Password"
             />
-            <SubmitButton
-                onClick={() => createUser(data)}
-                disabled={loadingApi}
-            />
+            <SubmitButton onClick={() => api.createUser(data)} />
         </>
     );
 };

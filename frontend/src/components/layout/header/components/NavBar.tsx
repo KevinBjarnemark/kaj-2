@@ -1,4 +1,3 @@
-import { APP_CONSTANTS } from "@/utils/constants/app-constants";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { JSX, useState } from "react";
@@ -56,17 +55,13 @@ const Links = (): JSX.Element => {
 };
 
 const NavBar = () => {
-    const height = APP_CONSTANTS.DIMENSIONS.NAVBAR.HEIGHT;
-
     return (
         <nav
-            className={
-                "flex-column-absolute right-0 bottom-0 " +
-                "text-center center w-3/4"
-            }
-            style={{
-                height: `${height}px`,
-            }}
+            className={`
+                flex-column-absolute right-0 bottom-0 
+                text-center center w-3/4 
+                h-[var(--navbar-height)]
+            `}
         >
             <Links />
         </nav>

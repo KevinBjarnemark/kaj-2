@@ -1,9 +1,9 @@
 "use client";
 
-import ApiContext from "@/context/ApiContext";
-import { ChangeEvent, JSX, useContext, useState } from "react";
+import { ChangeEvent, JSX, useState } from "react";
 import SubmitButton from "@/components/buttons/SubmitButton";
 import { STYLES } from "@/utils/constants/styles";
+import useApi from "@/hooks/api/useApi";
 
 interface LogInData {
     username: string | null;
@@ -11,7 +11,7 @@ interface LogInData {
 }
 
 const LogInForm = (): JSX.Element => {
-    const { login, loadingApi } = useContext(ApiContext);
+    const api = useApi();
 
     const [data, setData] = useState<LogInData>({
         username: null,
@@ -41,11 +41,7 @@ const LogInForm = (): JSX.Element => {
                 type="password"
                 placeholder="Password"
             />
-            <SubmitButton
-                onClick={() => login(data)}
-                disabled={loadingApi}
-                label="Login"
-            />
+            <SubmitButton onClick={() => api.login(data)} label="Login" />
         </form>
     );
 };

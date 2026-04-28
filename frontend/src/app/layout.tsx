@@ -19,17 +19,15 @@ export const metadata = {
 };
 
 const RootLayout = ({ children }: RootLayoutProps): JSX.Element => {
-    const marginTop = APP_CONSTANTS.DIMENSIONS.HEADER.HEIGHT;
-
     return (
         <html lang="en">
             <body className="flex-column-relative center w-full">
                 <Header />
                 <main
-                    className="flex-column-relative w-full pb-20"
-                    style={{
-                        marginTop: `${marginTop}px`,
-                    }}
+                    className={`
+                        flex-column-relative w-full pb-20 
+                        mt-[var(--header-height)]
+                    `}
                 >
                     <ApiProvider>{children}</ApiProvider>
                 </main>

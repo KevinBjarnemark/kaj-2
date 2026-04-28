@@ -7,13 +7,21 @@ interface ApiProviderProps {
 }
 
 const ApiProvider = ({ children }: ApiProviderProps): JSX.Element => {
-    const [loadingApi, setLoadingApi] = useState(false);
+    const [loadingApi, setLoadingApi] = useState<ApiContextType["loadingApi"]>(
+        [],
+    );
+
+    const addLoadingElement = (): void => {
+        setLoadingApi((prev) => [...prev, "."]);
+    };
+    const removeLoadingElement = (): void => {
+        setLoadingApi((prev) => prev.slice(0, -1));
+    };
 
     const usersEndPoint = `${process.env.NEXT_PUBLIC_BACKEND_URL}/users`;
 
     const createUser: ApiContextType["createUser"] = async (data) => {
-        if (loadingApi) return null;
-        setLoadingApi(true);
+        addLoadingElement();
         try {
             const response = await fetch(usersEndPoint, {
                 method: "POST",
@@ -26,14 +34,16 @@ const ApiProvider = ({ children }: ApiProviderProps): JSX.Element => {
             const parsedResponse = await response.json();
             console.log("✉️ Response", parsedResponse);
             return parsedResponse;
+        } catch (error) {
+            console.error("❌ API Error:", error);
+            throw error;
         } finally {
-            setLoadingApi(false);
+            removeLoadingElement();
         }
     };
 
     const updateUserById: ApiContextType["updateUserById"] = async (data) => {
-        if (loadingApi) return null;
-        setLoadingApi(true);
+        addLoadingElement();
         try {
             const { id, ...rest } = data;
             const response = await fetch(`${usersEndPoint}/${id}`, {
@@ -47,14 +57,16 @@ const ApiProvider = ({ children }: ApiProviderProps): JSX.Element => {
             const parsedResponse = await response.json();
             console.log("✉️ Response", parsedResponse);
             return parsedResponse;
+        } catch (error) {
+            console.error("❌ API Error:", error);
+            throw error;
         } finally {
-            setLoadingApi(false);
+            removeLoadingElement();
         }
     };
 
     const getUserById: ApiContextType["getUserById"] = async (id) => {
-        if (loadingApi) return null;
-        setLoadingApi(true);
+        addLoadingElement();
         try {
             const response = await fetch(`${usersEndPoint}/${id}`, {
                 method: "GET",
@@ -66,14 +78,16 @@ const ApiProvider = ({ children }: ApiProviderProps): JSX.Element => {
             const parsedResponse = await response.json();
             console.log("✉️ Response", parsedResponse);
             return parsedResponse;
+        } catch (error) {
+            console.error("❌ API Error:", error);
+            throw error;
         } finally {
-            setLoadingApi(false);
+            removeLoadingElement();
         }
     };
 
     const deleteUserById: ApiContextType["deleteUserById"] = async (id) => {
-        if (loadingApi) return null;
-        setLoadingApi(true);
+        addLoadingElement();
         try {
             const response = await fetch(`${usersEndPoint}/${id}`, {
                 method: "DELETE",
@@ -84,14 +98,16 @@ const ApiProvider = ({ children }: ApiProviderProps): JSX.Element => {
             });
             console.log("✉️ Response", response);
             return response;
+        } catch (error) {
+            console.error("❌ API Error:", error);
+            throw error;
         } finally {
-            setLoadingApi(false);
+            removeLoadingElement();
         }
     };
 
     const getAllUsers: ApiContextType["getAllUsers"] = async () => {
-        if (loadingApi) return null;
-        setLoadingApi(true);
+        addLoadingElement();
         try {
             const response = await fetch(usersEndPoint, {
                 method: "GET",
@@ -103,14 +119,16 @@ const ApiProvider = ({ children }: ApiProviderProps): JSX.Element => {
             const parsedResponse = await response.json();
             console.log("✉️ Response", parsedResponse);
             return parsedResponse as UserDto[];
+        } catch (error) {
+            console.error("❌ API Error:", error);
+            throw error;
         } finally {
-            setLoadingApi(false);
+            removeLoadingElement();
         }
     };
 
     const login: ApiContextType["login"] = async (data) => {
-        if (loadingApi) return null;
-        setLoadingApi(true);
+        addLoadingElement();
         try {
             const response = await fetch(`${usersEndPoint}/login`, {
                 method: "POST",
@@ -123,8 +141,11 @@ const ApiProvider = ({ children }: ApiProviderProps): JSX.Element => {
             const parsedResponse = await response.json();
             console.log("✉️ Response", parsedResponse);
             return parsedResponse;
+        } catch (error) {
+            console.error("❌ API Error:", error);
+            throw error;
         } finally {
-            setLoadingApi(false);
+            removeLoadingElement();
         }
     };
 

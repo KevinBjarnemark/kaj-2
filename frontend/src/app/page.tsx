@@ -1,7 +1,6 @@
 "use client";
 
 import { JSX } from "react";
-import { APP_CONSTANTS } from "@/utils/constants/app-constants";
 import {
     CreateUserForm,
     DeleteUserByIdForm,
@@ -51,13 +50,11 @@ const AdminDashBoard = (): JSX.Element => {
 const Home = (): JSX.Element => {
     return (
         <article
-            className={
-                "flex-column-relative w-full justify-start " +
-                "px-[2vw] py-[2vh]"
-            }
-            style={{
-                minHeight: `calc(100vh - ${APP_CONSTANTS.DIMENSIONS.HEADER.HEIGHT}px)`,
-            }}
+            className={`
+                flex-column-relative w-full justify-start 
+                px-[2vw] py-[2vh] 
+                min-h-[calc(100vh-var(--header-height))]
+                `}
         >
             <AdminDashBoard />
         </article>

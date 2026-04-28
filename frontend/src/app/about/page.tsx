@@ -1,4 +1,3 @@
-import { APP_CONSTANTS } from "@/utils/constants/app-constants";
 import { JSX } from "react";
 
 export const metadata = {
@@ -8,19 +7,17 @@ export const metadata = {
 const About = (): JSX.Element => {
     return (
         <article
-            className={
-                "flex-column-relative w-full justify-start " +
-                "px-[2vw] py-[2vh]"
-            }
-            style={{
-                minHeight: `calc(100vh - ${APP_CONSTANTS.DIMENSIONS.HEADER.HEIGHT}px)`,
-            }}
+            className={`
+                flex-column-relative w-full justify-start 
+                px-[2vw] py-[2vh]
+                min-h-[calc(100vh-var(--header-height))]
+                `}
         >
             <section
-                className={
-                    "flex-column-relative w-full items-center " +
-                    "justify-start mt-[20px]"
-                }
+                className={`
+                    flex-column-relative w-full items-center
+                    justify-start mt-[20px]
+                    `}
             >
                 <h2 className="underline">About</h2>
             </section>
