@@ -40,7 +40,7 @@ const Header = (): JSX.Element => {
         <header
             className={`
                 flex-column-fixed w-full top-0 border-b-4 
-                border-[#34383bff] h-[var(--header-height)]
+                border-[var(--border-color)] h-[var(--header-height)]
             `}
         >
             <section
