@@ -2,6 +2,11 @@
 import { useState, ReactNode, JSX } from "react";
 import ApiContext, { ApiContextType, UserDto } from "./ApiContext";
 
+const API_HEADERS = {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+};
+
 interface ApiProviderProps {
     children: ReactNode;
 }
@@ -25,10 +30,7 @@ const ApiProvider = ({ children }: ApiProviderProps): JSX.Element => {
         try {
             const response = await fetch(usersEndPoint, {
                 method: "POST",
-                headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json",
-                },
+                headers: API_HEADERS,
                 body: JSON.stringify(data),
             });
             const parsedResponse = await response.json();
@@ -48,10 +50,7 @@ const ApiProvider = ({ children }: ApiProviderProps): JSX.Element => {
             const { id, ...rest } = data;
             const response = await fetch(`${usersEndPoint}/${id}`, {
                 method: "PATCH",
-                headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json",
-                },
+                headers: API_HEADERS,
                 body: JSON.stringify(rest),
             });
             const parsedResponse = await response.json();
@@ -70,10 +69,7 @@ const ApiProvider = ({ children }: ApiProviderProps): JSX.Element => {
         try {
             const response = await fetch(`${usersEndPoint}/${id}`, {
                 method: "GET",
-                headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json",
-                },
+                headers: API_HEADERS,
             });
             const parsedResponse = await response.json();
             console.log("✉️ Response", parsedResponse);
@@ -91,10 +87,7 @@ const ApiProvider = ({ children }: ApiProviderProps): JSX.Element => {
         try {
             const response = await fetch(`${usersEndPoint}/${id}`, {
                 method: "DELETE",
-                headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json",
-                },
+                headers: API_HEADERS,
             });
             console.log("✉️ Response", response);
             return response;
@@ -111,10 +104,7 @@ const ApiProvider = ({ children }: ApiProviderProps): JSX.Element => {
         try {
             const response = await fetch(usersEndPoint, {
                 method: "GET",
-                headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json",
-                },
+                headers: API_HEADERS,
             });
             const parsedResponse = await response.json();
             console.log("✉️ Response", parsedResponse);
@@ -132,10 +122,7 @@ const ApiProvider = ({ children }: ApiProviderProps): JSX.Element => {
         try {
             const response = await fetch(`${usersEndPoint}/login`, {
                 method: "POST",
-                headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json",
-                },
+                headers: API_HEADERS,
                 body: JSON.stringify(data),
             });
             const parsedResponse = await response.json();
