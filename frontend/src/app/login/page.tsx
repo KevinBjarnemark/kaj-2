@@ -7,7 +7,7 @@ export const metadata = {
 
 const Login = (): JSX.Element => {
     return (
-        <article
+        <div
             className={`
                 flex-column-relative w-full 
                 justify-start px-[2vw] py-[2vh]
@@ -21,12 +21,10 @@ const Login = (): JSX.Element => {
                 `}
             >
                 <h2 className="underline">Login</h2>
-            </section>
 
-            <section className="flex-column-relative w-full center">
                 <LogInForm />
             </section>
-        </article>
+        </div>
     );
 };
 
