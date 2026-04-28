@@ -14,7 +14,7 @@ const NavLink = ({ endPoint }: NavLinkProps): JSX.Element => {
     const isCurrentPage = pathname.startsWith(`/${endPoint}`);
 
     return (
-        <li className="flex-row-relative mr-8 h-5">
+        <li className="flex-row-relative mr-4 ml-4 h-5">
             <Link
                 onMouseEnter={() => {
                     setHovered(true);
@@ -46,7 +46,7 @@ const NavLink = ({ endPoint }: NavLinkProps): JSX.Element => {
 
 const Links = (): JSX.Element => {
     return (
-        <ul className="flex-row-relative justify-end w-full pr-8">
+        <ul className="flex-row-relative justify-center sm:justify-end w-full">
             <NavLink endPoint="" />
             <NavLink endPoint="about" />
             <NavLink endPoint="contact" />
@@ -58,9 +58,13 @@ const NavBar = () => {
     return (
         <nav
             className={`
-                flex-column-absolute right-0 bottom-0 
-                text-center center w-3/4 
+                flex-column-absolute 
+                bottom-0 
+                left-1/2 -translate-x-1/2
+                sm:right-0 sm:translate-x-0
                 h-[var(--navbar-height)]
+                justify-center
+                items-center
             `}
         >
             <Links />

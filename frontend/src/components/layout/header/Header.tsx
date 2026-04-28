@@ -50,7 +50,6 @@ const Header = (): JSX.Element => {
                 `}
             >
                 <Logo />
-
                 <LogInButton />
                 <NavBar />
             </section>
