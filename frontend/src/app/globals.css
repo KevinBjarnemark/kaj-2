@@ -63,6 +63,11 @@
 
 :root {
     --background: #2a2f32;
+    --header-height: 88px;
+    --footer-height: 88px;
+    --navbar-height: 30px;
+    --border-color: #1a1c1d;
+    --kaj-color: #d6be5eff;
 }
 
 @layer base {

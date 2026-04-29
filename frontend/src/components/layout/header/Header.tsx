@@ -24,27 +24,13 @@ const Logo = (): JSX.Element => {
                 setHovered(false);
             }}
         >
-            <div
+            <LogoIcon
                 className={`
-                    flex-column-absolute top-0 sm:top-1/2 h-[45%] sm:h-[65%] 
-                    mt-[0] sm:mt-[3px] sm:-translate-y-[65%]
+                    flex-column-absolute top-0 sm:top-1/2 h-[45%] sm:h-[80%] 
+                    mt-[0] sm:mt-[0] sm:-translate-y-[50%]
                 `}
-            >
-                <LogoIcon hovered={hovered} />
-            </div>
-            <p
-                className={`
-                    flex-column-absolute top-1/2 sm:top-[82%] 
-                    font-['Lilita_One',sans-serif] transition-[fill] 
-                    duration-200 text-xs sm:text-l -translate-y-1/2
-                `}
-                style={{
-                    color: hovered ? "#ffffff" : "#969fa1ff",
-                    transform: `scale(${hovered ? 1.1 : 1})`,
-                }}
-            >
-                Admin
-            </p>
+                hovered={hovered}
+            />
         </Link>
     );
 };
@@ -54,7 +40,7 @@ const Header = (): JSX.Element => {
         <header
             className={`
                 flex-column-fixed w-full top-0 border-b-4 
-                border-[#34383bff] h-[var(--header-height)]
+                border-[var(--border-color)] h-[var(--header-height)]
             `}
         >
             <section
@@ -64,7 +50,6 @@ const Header = (): JSX.Element => {
                 `}
             >
                 <Logo />
-
                 <LogInButton />
                 <NavBar />
             </section>

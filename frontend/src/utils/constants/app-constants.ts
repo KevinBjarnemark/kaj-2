@@ -1,5 +1,5 @@
 export const APP_CONSTANTS = {
-    APP_NAME: "Admin",
+    APP_NAME: "Project Kaj",
 } as const;
 
 // ❕ TypeScript note

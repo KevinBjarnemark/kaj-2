@@ -15,14 +15,13 @@
 - ✔️ Footer  
 - ✔️ Login button  
 - ✔️ Netlify hosting   
+- ✔️ Background Image
 
 ### Uppdrag  
-- ❌ Contact page  
+- ✨ Contact page  
     - ✨ (`backend`) Save in **MySql** database     
-- ❌ 👤 **Jakob** Auth / Login    
+- ✨ 👤 **Jakob** Auth / Login    
     - ✨ Authentication with JWT       
-- ❌ 👤 **Anton** At least one **image** present on any of the pages
-    - 💡 Consistent background image?   
 - ✨ Backend hosting   
 - ✨ Dropdown selection för alla funktioner     
 

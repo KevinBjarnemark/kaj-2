@@ -1,62 +1,46 @@
-"use client";
-
 import { JSX } from "react";
-import {
-    CreateUserForm,
-    DeleteUserByIdForm,
-    GetUserByIdForm,
-    UpdateUserByIdForm,
-} from "@/components/forms/user-forms/UserForms";
-import { UsersTable } from "@/components/tables/users-table/UsersTable";
-
-const AdminDashBoard = (): JSX.Element => {
-    const spacing = "38px";
-
-    return (
-        <div className="flex-column-relative w-full start">
-            <div className="flex-row-relative center w-full">
-                <div className="flex-column-relative center w-[45vw] mr-[15vw]">
-                    <CreateUserForm />
-                </div>
-                <div className="flex-column-relative center w-[45vw]">
-                    <UsersTable />
-                </div>
-            </div>
-
-            <div
-                className="flex-row-relative center w-full"
-                style={{ marginTop: spacing }}
-            >
-                <div className="flex-column-relative center w-[45vw] mr-[15vw]">
-                    <UpdateUserByIdForm />
-                </div>
-                <div className="flex-column-relative center w-[45vw]">
-                    <GetUserByIdForm />
-                </div>
-            </div>
-
-            <div
-                className="flex-row-relative w-full"
-                style={{ marginTop: spacing }}
-            >
-                <div className="flex-column-relative center w-[45vw] mr-[15vw]">
-                    <DeleteUserByIdForm />
-                </div>
-            </div>
-        </div>
-    );
-};
+import Image from "next/image";
+import heroImage from "@/assets/images/hero-image.webp";
 
 const Home = (): JSX.Element => {
     return (
-        <article
-            className={`
-                flex-column-relative w-full justify-start 
-                px-[2vw] py-[2vh] 
-                min-h-[calc(100vh-var(--header-height))]
+        <article className="flex-column-relative w-full">
+            <section
+                className={`
+                    flex-column-relative w-full 
+                    h-[calc(100vh-var(--header-height))] 
+                    overflow-hidden border-b-6 
+                    border-[var(--border-color)] 
                 `}
-        >
-            <AdminDashBoard />
+            >
+                <Image
+                    src={heroImage}
+                    alt="Hero background"
+                    fill
+                    priority
+                    className="object-cover opacity-61"
+                    quality={90}
+                />
+
+                <div className="flex-column-relative center h-full">
+                    <h1
+                        className={`
+                        text-4xl md:text-6xl font-bold mb-4 text-center 
+                        text-[var(--kaj-color)] font-['Lilita_One',sans-serif]
+                    `}
+                    >
+                        Project Kaj
+                    </h1>
+                    <p
+                        className={`
+                        text-lg md:text-xl max-w-2xl font-['Lilita_One',sans-serif] 
+                        text-center text-[var(--kaj-color)]
+                    `}
+                    >
+                        Beyond the known universe
+                    </p>
+                </div>
+            </section>
         </article>
     );
 };
