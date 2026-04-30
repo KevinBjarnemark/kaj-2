@@ -1,6 +1,6 @@
 "use client";
 
-import { JSX } from "react";
+import React, { JSX } from "react";
 import {
     CreateUserForm,
     DeleteUserByIdForm,
@@ -9,39 +9,54 @@ import {
 } from "@/components/forms/user-forms/UserForms";
 import { UsersTable } from "@/components/tables/users-table/UsersTable";
 
-const AdminDashBoard = (): JSX.Element => {
-    const spacing = "38px";
+interface ComponentWrapperProps {
+    children: React.ReactNode;
+    className?: string;
+    marginTop?: boolean;
+}
 
+const ComponentWrapper = ({
+    children,
+    className = "",
+    marginTop = true,
+}: ComponentWrapperProps): JSX.Element => {
     return (
-        <div className="flex-column-relative w-full start">
-            <div className="flex-row-relative center w-full">
-                <div className="flex-column-relative center w-[45vw] mr-[15vw]">
+        <div
+            className={`
+              flex-column-relative w-5/6 center
+              ${marginTop ? "mt-9.5" : ""} 
+              ${className}
+            `}
+        >
+            {children}
+        </div>
+    );
+};
+
+const AdminDashBoard = (): JSX.Element => {
+    return (
+        <div className="flex-row-relative w-full center mt-8 mb-8">
+            <div className="flex-column-relative center w-1/2">
+                <ComponentWrapper marginTop={false}>
                     <CreateUserForm />
-                </div>
-                <div className="flex-column-relative center w-[45vw]">
-                    <UsersTable />
-                </div>
-            </div>
+                </ComponentWrapper>
 
-            <div
-                className="flex-row-relative center w-full"
-                style={{ marginTop: spacing }}
-            >
-                <div className="flex-column-relative center w-[45vw] mr-[15vw]">
+                <ComponentWrapper>
                     <UpdateUserByIdForm />
-                </div>
-                <div className="flex-column-relative center w-[45vw]">
-                    <GetUserByIdForm />
-                </div>
-            </div>
+                </ComponentWrapper>
 
-            <div
-                className="flex-row-relative w-full"
-                style={{ marginTop: spacing }}
-            >
-                <div className="flex-column-relative center w-[45vw] mr-[15vw]">
+                <ComponentWrapper>
+                    <GetUserByIdForm />
+                </ComponentWrapper>
+
+                <ComponentWrapper>
                     <DeleteUserByIdForm />
-                </div>
+                </ComponentWrapper>
+            </div>
+            <div className="flex-column-relative center w-1/2">
+                <ComponentWrapper marginTop={false}>
+                    <UsersTable />
+                </ComponentWrapper>
             </div>
         </div>
     );

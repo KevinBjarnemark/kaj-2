@@ -16,10 +16,10 @@ const About = (): JSX.Element => {
             <section
                 className={`
                     flex-column-relative w-full items-center
-                    justify-start mt-[20px]
+                    justify-start mt-5
                 `}
             >
-                <h2 className="underline">About</h2>
+                <h1 className="underline">About</h1>
 
                 <p>
                     This is an experimental project for managing platforms as

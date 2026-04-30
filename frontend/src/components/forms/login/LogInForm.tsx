@@ -28,7 +28,7 @@ const LogInForm = (): JSX.Element => {
     };
 
     return (
-        <form className="w-[88%] sm:w-[330px]">
+        <form className="w-5/6 sm:w-82">
             <input
                 {...sharedProps}
                 name="username"

@@ -39,7 +39,7 @@ export const UpdateUserByIdForm = (): JSX.Element => {
 
     return (
         <>
-            <h4>Update user</h4>
+            <h2 className="text-base">Update user</h2>
             <input
                 {...sharedProps}
                 style={{ width: "60%", marginRight: "2%" }}
@@ -80,7 +80,7 @@ export const GetUserByIdForm = (): JSX.Element => {
 
     return (
         <>
-            <h4>Get user</h4>
+            <h2 className="text-base">Get user</h2>
             <input {...sharedProps} name="id" type="number" placeholder="ID" />
             <SubmitButton onClick={() => api.getUserById(data.id)} />
         </>
@@ -103,7 +103,7 @@ export const DeleteUserByIdForm = (): JSX.Element => {
 
     return (
         <>
-            <h4>Delete user</h4>
+            <h2 className="text-base">Delete user</h2>
             <input {...sharedProps} name="id" type="number" placeholder="ID" />
             <SubmitButton onClick={() => api.deleteUserById(data.id)} />
         </>
@@ -130,7 +130,7 @@ export const CreateUserForm = (): JSX.Element => {
 
     return (
         <>
-            <h4>Create user</h4>
+            <h2 className="text-base">Create user</h2>
             <input
                 {...sharedProps}
                 name="username"

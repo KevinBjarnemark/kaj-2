@@ -62,6 +62,13 @@
 }
 
 @theme {
+  --color-kaj: #d6be5eff;
+  --color-button: #65696b;
+  --color-button-hovered: #7c8184;
+  --color-button-text: #c1c8cd;
+  --color-border: #1a1c1d;
+  --color-border-300: #34383b;
+  --color-component-background: #212324ff;
   --font-lilita: "Lilita One", sans-serif;
 }
 
@@ -181,14 +188,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
-
-  .border-thin {
-    border: 1px solid;
-  }
-
-  .hover-underline:hover {
-    text-decoration: underline;
   }
 
   .no-select {

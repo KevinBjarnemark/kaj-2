@@ -14,7 +14,7 @@ const Logo = (): JSX.Element => {
             href="/"
             rel="noopener noreferrer"
             className={`
-                flex-column-relative center w-[140px]
+                flex-column-relative center w-35
                 h-[calc((var(--header-height)-5px))]
             `}
             onMouseEnter={() => {
@@ -40,7 +40,7 @@ const Header = (): JSX.Element => {
         <header
             className={`
                 flex-column-fixed w-full top-0 border-b-4 
-                border-[var(--border-color)] h-[var(--header-height)]
+                border-border h-[var(--header-height)]
             `}
         >
             <section

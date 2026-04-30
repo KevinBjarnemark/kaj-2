@@ -2,7 +2,7 @@ export const STYLES = {
     INPUT: {
         BASE:
             "flex-column-relative center w-full h-full bg-[#474a4b] " +
-            "rounded px-[6px] text-[#c1c8cd] font-extrabold mb-[5px]",
+            "rounded px-1.5 text-[#c1c8cd] font-extrabold mb-1.5",
     },
 } as const;
 

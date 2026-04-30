@@ -10,7 +10,7 @@ const Home = (): JSX.Element => {
                     flex-column-relative w-full 
                     h-[calc(100vh-var(--header-height))] 
                     overflow-hidden border-b-6 
-                    border-[var(--border-color)] 
+                    border-border
                 `}
       >
         <Image
