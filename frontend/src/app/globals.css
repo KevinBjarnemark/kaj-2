@@ -6,123 +6,199 @@
 @import "tailwindcss/utilities";
 
 @font-face {
-    font-family: "Niramit";
-    src: url("/fonts/Niramit/Niramit-Light.woff2") format("woff2");
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Niramit";
+  src: url("/fonts/Niramit/Niramit-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Niramit";
-    src: url("/fonts/Niramit/Niramit-ExtraLight.woff2") format("woff2");
-    font-weight: 200;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Niramit";
+  src: url("/fonts/Niramit/Niramit-ExtraLight.woff2") format("woff2");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Niramit";
-    src: url("/fonts/Niramit/Niramit-Regular.woff2") format("woff2");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Niramit";
+  src: url("/fonts/Niramit/Niramit-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Niramit";
-    src: url("/fonts/Niramit/Niramit-Medium.woff2") format("woff2");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Niramit";
+  src: url("/fonts/Niramit/Niramit-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Niramit";
-    src: url("/fonts/Niramit/Niramit-SemiBold.woff2") format("woff2");
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Niramit";
+  src: url("/fonts/Niramit/Niramit-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Niramit";
-    src: url("/fonts/Niramit/Niramit-Bold.woff2") format("woff2");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Niramit";
+  src: url("/fonts/Niramit/Niramit-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Lilita One";
-    src: url("/fonts/Lilita_One/Lilita_One-Regular.woff2") format("woff2");
-    font-weight: 100 900;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Lilita One";
+  src: url("/fonts/Lilita_One/Lilita_One-Regular.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-lilita: "Lilita One", sans-serif;
 }
 
 @layer base {
-    :root {
-        --background: #2a2f32;
-        --header-height: 88px;
-        --footer-height: 88px;
-        --navbar-height: 30px;
-        --border-color: #1a1c1d;
-        --kaj-color: #d6be5eff;
-    }
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Niramit", sans-serif;
-        text-align: left;
-        color: #9fa7ad;
-    }
+  :root {
+    --background: #2a2f32;
+    --header-height: 88px;
+    --footer-height: 88px;
+    --navbar-height: 30px;
+    --border-color: #1a1c1d;
+    --kaj-color: #d6be5eff;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Niramit", sans-serif;
+    text-align: left;
+    color: #9fa7ad;
+  }
 
-    main {
-        background-color: var(--background);
-    }
+  main {
+    background-color: var(--background);
+  }
 
-    header {
-        z-index: 1;
-        background-color: var(--background);
-    }
+  header {
+    z-index: 1;
+    background-color: var(--background);
+  }
 
-    article {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        justify-content: center;
-        position: relative;
-        text-align: center;
-        min-width: 100%;
-        max-width: 100%;
-    }
+  article {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    min-width: 100%;
+    max-width: 100%;
+  }
 
-    footer {
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        background-color: var(--background);
-    }
+  footer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: var(--background);
+  }
 
-    a {
-        text-decoration: none;
-    }
+  a {
+    text-decoration: none;
+  }
 
-    button {
-        border: 0 transparent;
-        cursor: pointer;
-        text-decoration: none;
-    }
+  button {
+    border: 0 transparent;
+    cursor: pointer;
+    text-decoration: none;
+  }
 
-    input {
-        background-color: transparent;
-        border: 0 transparent;
-        outline: none;
-    }
+  input {
+    background-color: transparent;
+    border: 0 transparent;
+    outline: none;
+  }
+
+  :disabled {
+    cursor: not-allowed !important;
+  }
 }
 
-:disabled {
-    cursor: not-allowed !important;
+@layer utilities {
+  .flex-row-relative {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+  }
+
+  .flex-column-relative {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .flex-row-absolute {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+  }
+
+  .flex-column-absolute {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+  }
+
+  .flex-column-fixed {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+  }
+
+  .flex-row-fixed {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+  }
+
+  .center {
+    align-items: center;
+    justify-content: center;
+  }
+  .start {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .border-thin {
+    border: 1px solid;
+  }
+
+  .hover-underline:hover {
+    text-decoration: underline;
+  }
+
+  .no-select {
+    user-select: none;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE/Edge */
+  }
+
+  .no-click {
+    pointer-events: none;
+  }
 }
