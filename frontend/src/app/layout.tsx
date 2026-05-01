@@ -22,17 +22,17 @@ const RootLayout = ({ children }: RootLayoutProps): JSX.Element => {
     return (
         <html lang="en">
             <body className="flex-column-relative center w-full">
-                <Header />
-                <main
-                    className={`
+                <LoadingProvider>
+                    <Header />
+                    <main
+                        className={`
                         flex-column-relative w-full pb-20 
                         mt-(--header-height)
                     `}
-                >
-                    <LoadingProvider>
+                    >
                         <AdminProvider>{children}</AdminProvider>
-                    </LoadingProvider>
-                </main>
+                    </main>
+                </LoadingProvider>
                 <Footer />
             </body>
         </html>

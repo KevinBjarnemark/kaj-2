@@ -4,6 +4,7 @@ import ApiContext, { ApiContextType, UserDto } from "./AdminContext";
 import _deleteUser from "@/utils/admin/delete-user";
 import useLoading from "@/hooks/loading/useLoading";
 import { API_BASE_HEADERS } from "@/utils/constants/api";
+import wait from "@/utils/delay/wait";
 
 interface AdminProviderProps {
     children: ReactNode;
@@ -28,6 +29,8 @@ const AdminProvider = ({ children }: AdminProviderProps): JSX.Element => {
     const createUser: ApiContextType["createUser"] = async (data) => {
         addLoadingPoint();
         try {
+            await wait(5000); // ❕ Just to demonstrate the loading spinner
+
             const response = await fetch(usersEndPoint, {
                 method: "POST",
                 headers: API_BASE_HEADERS,
