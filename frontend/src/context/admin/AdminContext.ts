@@ -2,7 +2,7 @@
 import { createContext } from "react";
 
 interface UpdateUserData {
-    id: number;
+    id: number | null;
     username: string | null;
     email: string | null;
 }

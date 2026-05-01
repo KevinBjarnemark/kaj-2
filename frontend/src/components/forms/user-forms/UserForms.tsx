@@ -4,7 +4,7 @@ import { STYLES } from "@/utils/constants/styles";
 import useAdmin from "@/hooks/admin/useAdmin";
 
 interface UpdateUserData {
-    id: string | null;
+    id: number | null;
     username: string | null;
     email: string | null;
 }
@@ -28,7 +28,8 @@ export const UpdateUserByIdForm = (): JSX.Element => {
         setData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     };
 
-    const handleSubmit = (): void => {
+    const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>): void => {
+        e.preventDefault();
         // Validate and transform
         const id = Number(data.id);
         if (!id) {
@@ -49,29 +50,53 @@ export const UpdateUserByIdForm = (): JSX.Element => {
     };
 
     return (
-        <>
+        <form
+            onSubmit={handleSubmit}
+            className="flex-column-relative center w-full"
+        >
             <h2 className="text-base">Update user</h2>
+
+            <label htmlFor="update-user-id" className="sr-only">
+                User ID
+            </label>
             <input
                 {...sharedProps}
-                style={{ width: "60%", marginRight: "2%" }}
+                id="update-user-id"
                 name="id"
                 type="number"
-                placeholder="ID"
+                value={data.id ?? ""}
+                placeholder="User ID"
+                required
             />
+
+            <label htmlFor="update-username" className="sr-only">
+                Username (optional)
+            </label>
             <input
                 {...sharedProps}
+                id="update-username"
                 name="username"
                 type="text"
-                placeholder="Username"
+                value={data.username ?? ""}
+                placeholder="New username"
+                autoComplete="username"
             />
+
+            <label htmlFor="update-email" className="sr-only">
+                Email (optional)
+            </label>
             <input
                 {...sharedProps}
+                id="update-email"
                 name="email"
-                type="text"
-                placeholder="Email"
+                type="email"
+                value={data.email ?? ""}
+                placeholder="New email"
+                autoComplete="email"
             />
-            <SubmitButton onClick={handleSubmit} />
-        </>
+
+            <SubmitButton />
+        </form>
     );
 };
 
@@ -88,7 +113,8 @@ export const CreateUserForm = (): JSX.Element => {
         setData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     };
 
-    const handleSubmit = (): void => {
+    const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>): void => {
+        e.preventDefault();
         if (!data.username) {
             alert("Username is required");
             return;
@@ -115,7 +141,10 @@ export const CreateUserForm = (): JSX.Element => {
     };
 
     return (
-        <>
+        <form
+            onSubmit={handleSubmit}
+            className="flex-column-relative center w-full"
+        >
             <h2 className="text-base">Create user</h2>
             <input
                 {...sharedProps}
@@ -135,7 +164,7 @@ export const CreateUserForm = (): JSX.Element => {
                 type="password"
                 placeholder="Password"
             />
-            <SubmitButton onClick={handleSubmit} />
-        </>
+            <SubmitButton />
+        </form>
     );
 };
