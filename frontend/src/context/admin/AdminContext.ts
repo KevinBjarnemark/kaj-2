@@ -2,20 +2,15 @@
 import { createContext } from "react";
 
 interface UpdateUserData {
-    id: string | null;
+    id: number;
     username: string | null;
     email: string | null;
 }
 
 interface CreateUserData {
-    username: string | null;
-    email: string | null;
-    password: string | null;
-}
-
-interface LogInData {
-    username: string | null;
-    password: string | null;
+    username: string;
+    email: string;
+    password: string;
 }
 
 export interface UserDto {
@@ -26,13 +21,11 @@ export interface UserDto {
 }
 
 export interface ApiContextType {
-    loadingApi: string[];
     createUser: (data: CreateUserData) => Promise<UserDto>;
-    getAllUsers: () => Promise<UserDto[]>;
+    loadUsers: () => Promise<UserDto[]>;
     updateUserById: (data: UpdateUserData) => Promise<UserDto>;
-    getUserById: (id: string | null) => Promise<UserDto>;
-    deleteUserById: (id: string | null) => Promise<Response>;
-    login: (data: LogInData) => Promise<UserDto>;
+    deleteUser: (id: number) => Promise<Response>;
+    loadedUsers: UserDto[];
 }
 
 const ApiContext = createContext<ApiContextType | null>(null);

@@ -3,11 +3,9 @@
 import React, { JSX } from "react";
 import {
     CreateUserForm,
-    DeleteUserByIdForm,
-    GetUserByIdForm,
     UpdateUserByIdForm,
 } from "@/components/forms/user-forms/UserForms";
-import { UsersTable } from "@/components/tables/users-table/UsersTable";
+import UserManager from "../user-manager/UserManager";
 
 interface ComponentWrapperProps {
     children: React.ReactNode;
@@ -35,8 +33,13 @@ const ComponentWrapper = ({
 
 const AdminDashBoard = (): JSX.Element => {
     return (
-        <div className="flex-row-relative w-full center mt-8 mb-8">
-            <div className="flex-column-relative center w-1/2">
+        <div
+            className={`
+            flex-row-relative w-full items-start 
+            justify-center mt-8 mb-8
+        `}
+        >
+            <div className="flex-column-relative center w-1/3">
                 <ComponentWrapper marginTop={false}>
                     <CreateUserForm />
                 </ComponentWrapper>
@@ -44,18 +47,11 @@ const AdminDashBoard = (): JSX.Element => {
                 <ComponentWrapper>
                     <UpdateUserByIdForm />
                 </ComponentWrapper>
-
-                <ComponentWrapper>
-                    <GetUserByIdForm />
-                </ComponentWrapper>
-
-                <ComponentWrapper>
-                    <DeleteUserByIdForm />
-                </ComponentWrapper>
             </div>
-            <div className="flex-column-relative center w-1/2">
+            <div className="flex-column-relative center w-2/3">
                 <ComponentWrapper marginTop={false}>
-                    <UsersTable />
+                    <h2 className="text-base">Users</h2>
+                    <UserManager />
                 </ComponentWrapper>
             </div>
         </div>
