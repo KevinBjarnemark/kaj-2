@@ -34,8 +34,22 @@ const Login = (): JSX.Element => {
                 min-h-[calc(100vh-var(--header-height))]
             `}
         >
-            <h1 className="underline">Login</h1>
+            <h1 className="underline mt-13">Login</h1>
             <LogInForm />
+
+            <aside
+                role="alert"
+                className={`
+                flex-column-fixed w-full 
+                justify-start items-center px-[2vw]
+                top-(--header-height) 
+                h-10 bg-red-400 
+            `}
+            >
+                <p className="flex-column-relative center text-white h-100 ">
+                    🔨 This page is under construction
+                </p>
+            </aside>
         </div>
     );
 };
