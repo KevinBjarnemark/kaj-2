@@ -1,14 +1,23 @@
 "use client";
 import { ReactNode, JSX, useState, useEffect } from "react";
 import ApiContext, { ApiContextType, UserDto } from "./AdminContext";
-import _deleteUser from "@/utils/admin/delete-user";
 import useLoading from "@/hooks/loading/useLoading";
-import { API_BASE_HEADERS } from "@/utils/constants/api";
+import { API_BASE_HEADERS, API_ENDPOINTS } from "@/utils/constants/api";
 import wait from "@/utils/delay/wait";
 
 interface AdminProviderProps {
     children: ReactNode;
 }
+
+const buildExpectedResponseErrorString = (
+    expectedResponseStatus: number,
+    responseStatus: number,
+): string => {
+    return (
+        `Expected response code ${expectedResponseStatus}, ` +
+        `but got ${responseStatus}`
+    );
+};
 
 const AdminProvider = ({ children }: AdminProviderProps): JSX.Element => {
     const { addLoadingPoint, removeLoadingPoint } = useLoading();
@@ -37,7 +46,19 @@ const AdminProvider = ({ children }: AdminProviderProps): JSX.Element => {
                 body: JSON.stringify(data),
             });
             const parsedResponse = await response.json();
-            setLoadedUsers((prev) => [...prev, parsedResponse]);
+
+            const expectedResponse = 201;
+            if (response?.status === expectedResponse) {
+                setLoadedUsers((prev) => [...prev, parsedResponse]);
+            } else {
+                throw new Error(
+                    buildExpectedResponseErrorString(
+                        expectedResponse,
+                        response.status,
+                    ),
+                );
+            }
+
             return parsedResponse;
         } catch (error) {
             console.error("❌ API Error:", error);
@@ -58,11 +79,22 @@ const AdminProvider = ({ children }: AdminProviderProps): JSX.Element => {
             });
             const parsedResponse = await response.json();
 
-            setLoadedUsers((prev) =>
-                prev.map((user) => (user.id === id ? parsedResponse : user)),
-            );
+            const expectedResponse = 200;
+            if (response?.status === expectedResponse) {
+                setLoadedUsers((prev) =>
+                    prev.map((user) =>
+                        user.id === id ? parsedResponse : user,
+                    ),
+                );
+            } else {
+                throw new Error(
+                    buildExpectedResponseErrorString(
+                        expectedResponse,
+                        response.status,
+                    ),
+                );
+            }
 
-            console.log("✉️ Response", parsedResponse);
             return parsedResponse;
         } catch (error) {
             console.error("❌ API Error:", error);
@@ -75,7 +107,25 @@ const AdminProvider = ({ children }: AdminProviderProps): JSX.Element => {
     const deleteUser: ApiContextType["deleteUser"] = async (id) => {
         addLoadingPoint();
         try {
-            const response = await _deleteUser(id);
+            const response = await fetch(`${API_ENDPOINTS.users}/${id}`, {
+                method: "DELETE",
+                headers: API_BASE_HEADERS,
+            });
+
+            const expectedResponse = 204;
+            if (response?.status === expectedResponse) {
+                setLoadedUsers((prev) =>
+                    prev.filter((user) => user.id !== id),
+                );
+            } else {
+                throw new Error(
+                    buildExpectedResponseErrorString(
+                        expectedResponse,
+                        response.status,
+                    ),
+                );
+            }
+
             setLoadedUsers((prev) => prev.filter((user) => user.id !== id));
             return response;
         } catch (error) {
@@ -94,7 +144,18 @@ const AdminProvider = ({ children }: AdminProviderProps): JSX.Element => {
                 headers: API_BASE_HEADERS,
             });
             const parsedResponse = await response.json();
-            console.log("✉️ Response", parsedResponse);
+
+            const expectedResponse = 200;
+            if (response?.status === expectedResponse) {
+                setLoadedUsers(parsedResponse);
+            } else {
+                throw new Error(
+                    buildExpectedResponseErrorString(
+                        expectedResponse,
+                        response.status,
+                    ),
+                );
+            }
             setLoadedUsers(parsedResponse);
             return parsedResponse as UserDto[];
         } catch (error) {
