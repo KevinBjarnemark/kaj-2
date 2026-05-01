@@ -1,7 +1,23 @@
 import { JSX } from "react";
 
+const title = "About";
+const description = "Learn more about KAJ";
+
 export const metadata = {
-    title: "About",
+    title,
+    description,
+
+    openGraph: {
+        title,
+        description,
+        type: "website",
+    },
+
+    twitter: {
+        card: "summary",
+        title,
+        description,
+    },
 };
 
 const About = (): JSX.Element => {

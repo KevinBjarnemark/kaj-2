@@ -1,8 +1,28 @@
 import LogInForm from "@/components/forms/login/LogInForm";
 import { JSX } from "react";
 
+const title = "Login";
+const description = "Sign in to your account";
+
 export const metadata = {
-    title: "Login",
+    title,
+    description,
+
+    openGraph: {
+        title,
+        description,
+        type: "website",
+    },
+
+    twitter: {
+        card: "summary",
+        title,
+        description,
+    },
+    robots: {
+        index: false,
+        follow: true, // ❕ Can follow links to other pages
+    },
 };
 
 const Login = (): JSX.Element => {

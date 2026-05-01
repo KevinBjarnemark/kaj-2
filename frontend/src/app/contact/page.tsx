@@ -1,8 +1,24 @@
 import ContactForm from "@/components/forms/contact/ContactForm";
 import { JSX } from "react";
 
+const title = "Contact";
+const description = "Get in touch with our team";
+
 export const metadata = {
-    title: "Contact",
+    title,
+    description,
+
+    openGraph: {
+        title,
+        description,
+        type: "website",
+    },
+
+    twitter: {
+        card: "summary",
+        title,
+        description,
+    },
 };
 
 const Contact = (): JSX.Element => {
