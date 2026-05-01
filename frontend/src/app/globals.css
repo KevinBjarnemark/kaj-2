@@ -105,6 +105,7 @@
         --border-color: #1a1c1d;
         --kaj-color: #d6be5eff;
     }
+
     * {
         margin: 0;
         padding: 0;
@@ -203,25 +204,9 @@
         align-items: center;
         justify-content: center;
     }
+
     .start {
         align-items: flex-start;
         justify-content: flex-start;
-    }
-    .absolute-center {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .no-select {
-        user-select: none;
-        -webkit-user-select: none; /* Safari */
-        -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* IE/Edge */
-    }
-
-    .no-click {
-        pointer-events: none;
     }
 }
