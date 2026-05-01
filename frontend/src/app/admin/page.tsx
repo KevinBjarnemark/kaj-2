@@ -14,6 +14,7 @@ const Admin = (): JSX.Element => {
                 min-h-[calc(100vh-var(--header-height))]
             `}
         >
+            <h1 className="sr-only">Admin</h1>
             <AdminDashBoard />
         </div>
     );
