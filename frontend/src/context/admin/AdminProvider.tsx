@@ -38,8 +38,6 @@ const AdminProvider = ({ children }: AdminProviderProps): JSX.Element => {
     const createUser: ApiContextType["createUser"] = async (data) => {
         addLoadingPoint();
         try {
-            await wait(5000); // ❕ Just to demonstrate the loading spinner
-
             const response = await fetch(usersEndPoint, {
                 method: "POST",
                 headers: API_BASE_HEADERS,
@@ -139,6 +137,7 @@ const AdminProvider = ({ children }: AdminProviderProps): JSX.Element => {
     const loadUsers: ApiContextType["loadUsers"] = async () => {
         addLoadingPoint();
         try {
+            await wait(5000); // ❕ Just to demonstrate the loading spinner
             const response = await fetch(usersEndPoint, {
                 method: "GET",
                 headers: API_BASE_HEADERS,
