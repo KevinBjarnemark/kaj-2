@@ -54,7 +54,7 @@ const Links = (): JSX.Element => {
     );
 };
 
-const NavBar = () => {
+const NavBar = (): JSX.Element => {
     return (
         <nav
             className={`
@@ -62,7 +62,7 @@ const NavBar = () => {
                 bottom-0 
                 left-1/2 -translate-x-1/2
                 sm:right-0 sm:translate-x-0
-                h-[var(--navbar-height)]
+                h-(--navbar-height)
                 justify-center
                 items-center
             `}

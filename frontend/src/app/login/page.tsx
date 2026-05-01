@@ -2,30 +2,22 @@ import LogInForm from "@/components/forms/login/LogInForm";
 import { JSX } from "react";
 
 export const metadata = {
-  title: "Login",
+    title: "Login",
 };
 
 const Login = (): JSX.Element => {
-  return (
-    <div
-      className={`
+    return (
+        <div
+            className={`
                 flex-column-relative w-full 
-                justify-start px-[2vw] py-[2vh]
+                justify-start items-center px-[2vw] py-[2vh]
                 min-h-[calc(100vh-var(--header-height))]
             `}
-    >
-      <section
-        className={`
-                    flex-column-relative w-full items-center 
-                    justify-start mt-5
-                `}
-      >
-        <h1 className="underline">Login</h1>
-
-        <LogInForm />
-      </section>
-    </div>
-  );
+        >
+            <h1 className="underline">Login</h1>
+            <LogInForm />
+        </div>
+    );
 };
 
 export default Login;

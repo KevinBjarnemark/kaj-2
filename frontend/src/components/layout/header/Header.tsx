@@ -31,7 +31,7 @@ const Logo = (): JSX.Element => {
                 <LogoIcon
                     className={`
                     flex-column-absolute top-0 sm:top-1/2 h-[45%] sm:h-[80%] 
-                    mt-[0] sm:mt-[0] sm:-translate-y-[50%]
+                    sm:-translate-y-[50%]
                 `}
                     hovered={hovered}
                 />
@@ -45,10 +45,10 @@ const Header = (): JSX.Element => {
         <header
             className={`
                 flex-column-fixed w-full top-0 border-b-4 
-                border-border h-[var(--header-height)]
+                border-border h-(--header-height) z-2
             `}
         >
-            <section
+            <div
                 className={`
                     flex-column-relative items-center justify-center 
                     w-full sm:items-start sm:justify-start
@@ -57,7 +57,7 @@ const Header = (): JSX.Element => {
                 <Logo />
                 <LogInButton />
                 <NavBar />
-            </section>
+            </div>
         </header>
     );
 };

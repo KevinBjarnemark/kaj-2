@@ -22,16 +22,18 @@ const Contact = (): JSX.Element => {
 
     const handleChange = (
         e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-    ) => {
+    ): void => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
-    const isValidEmail = (email: string) => {
+    const isValidEmail = (email: string): boolean => {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     };
 
-    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (
+        e: FormEvent<HTMLFormElement>,
+    ): Promise<void> => {
         e.preventDefault();
 
         if (

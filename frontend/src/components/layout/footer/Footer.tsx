@@ -8,14 +8,12 @@ const Footer = (): JSX.Element => {
             className={`
                 flex-column-relative center w-full 
                 border-t-4 border-border-300
-                h-[var(--footer-height)]
+                h-(--footer-height)
             `}
         >
-            <section className="flex-column-relative center w-full">
-                <p className="text-xs sm:text-sm">
-                    &copy; 2026 Project Kaj. All rights reserved.
-                </p>
-            </section>
+            <p className="text-xs sm:text-sm">
+                © 2026 Project Kaj. All rights reserved.
+            </p>
         </footer>
     );
 };
