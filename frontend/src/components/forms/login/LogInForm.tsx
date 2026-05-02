@@ -1,47 +1,46 @@
 "use client";
 
-import { ChangeEvent, JSX, useState } from "react";
+import { JSX } from "react";
 import SubmitButton from "@/components/buttons/SubmitButton";
 import { STYLES } from "@/utils/constants/styles";
-import useApi from "@/hooks/api/useApi";
-
-interface LogInData {
-    username: string | null;
-    password: string | null;
-}
 
 const LogInForm = (): JSX.Element => {
-    const api = useApi();
-
-    const [data, setData] = useState<LogInData>({
-        username: null,
-        password: null,
-    });
-
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>): void => {
+        e.preventDefault();
+        alert("This feature is coming soon!");
     };
 
     const sharedProps = {
         className: STYLES.INPUT.BASE,
-        onChange: handleChange,
     };
 
     return (
-        <form className="w-[88%] sm:w-[330px]">
+        <form className="w-5/6 sm:w-82" onSubmit={handleSubmit}>
+            <label htmlFor="username" className="sr-only">
+                Username
+            </label>
             <input
                 {...sharedProps}
+                id="username"
                 name="username"
                 type="text"
+                autoComplete="username"
                 placeholder="Username"
             />
+
+            <label htmlFor="password" className="sr-only">
+                Password
+            </label>
             <input
                 {...sharedProps}
+                id="password"
                 name="password"
                 type="password"
+                autoComplete="current-password"
                 placeholder="Password"
             />
-            <SubmitButton onClick={() => api.login(data)} label="Login" />
+
+            <SubmitButton label="Login" />
         </form>
     );
 };

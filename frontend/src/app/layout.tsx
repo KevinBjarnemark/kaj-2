@@ -1,10 +1,10 @@
 import "./globals.css";
-import "./utilities.css";
 import { APP_CONSTANTS } from "@/utils/constants/app-constants";
 import Header from "@/components/layout/header/Header";
-import ApiProvider from "@/context/ApiProvider";
+import AdminProvider from "@/context/admin/AdminProvider";
 import { JSX } from "react";
 import Footer from "@/components/layout/footer/Footer";
+import LoadingProvider from "@/context/loading/LoadingProvider";
 
 interface RootLayoutProps {
     // ❕ `React.ReactNode` accepts anything that can be rendered
@@ -22,15 +22,17 @@ const RootLayout = ({ children }: RootLayoutProps): JSX.Element => {
     return (
         <html lang="en">
             <body className="flex-column-relative center w-full">
-                <Header />
-                <main
-                    className={`
+                <LoadingProvider>
+                    <Header />
+                    <main
+                        className={`
                         flex-column-relative w-full pb-20 
-                        mt-[var(--header-height)]
+                        mt-(--header-height)
                     `}
-                >
-                    <ApiProvider>{children}</ApiProvider>
-                </main>
+                    >
+                        <AdminProvider>{children}</AdminProvider>
+                    </main>
+                </LoadingProvider>
                 <Footer />
             </body>
         </html>

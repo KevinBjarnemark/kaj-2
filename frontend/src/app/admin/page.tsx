@@ -3,6 +3,13 @@ import { JSX } from "react";
 
 export const metadata = {
     title: "Admin",
+
+    // ❕ This page should not be indexed on search engines
+    robots: {
+        index: false,
+        follow: false,
+        nocache: true, // ❕ Don't cache this page
+    },
 };
 
 const Admin = (): JSX.Element => {
@@ -14,6 +21,7 @@ const Admin = (): JSX.Element => {
                 min-h-[calc(100vh-var(--header-height))]
             `}
         >
+            <h1 className="sr-only">Admin</h1>
             <AdminDashBoard />
         </div>
     );

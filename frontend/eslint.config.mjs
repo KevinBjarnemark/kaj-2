@@ -15,7 +15,10 @@ const eslintConfig = defineConfig([
         },
         rules: {
             "@typescript-eslint/no-unused-vars": "warn",
-            "no-unused-vars": "off", // Turn off base rule
+            // ❕ Prompt when forgetting return type
+            "@typescript-eslint/explicit-function-return-type": "error",
+            // ❕ This is outdated. Throws errors for words like `don't`
+            "react/no-unescaped-entities": "off",
         },
     },
     globalIgnores([".next/**", "out/**", "build/**", "next-env.d.ts"]),

@@ -61,7 +61,42 @@
     font-display: swap;
 }
 
+@theme {
+    --color-kaj: #d6be5e;
+    --color-button: #65696b;
+    --color-button-hovered: #7c8184;
+    --color-button-text: #c1c8cd;
+    --color-border: #1a1c1d;
+    --color-border-300: #34383b;
+    --color-component-background: #212324;
+    --color-table-index: #3b3d3eff;
+
+    --font-lilita: "Lilita One", sans-serif;
+}
+
 @layer base {
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 4px;
+        background: #363739;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #6c7379;
+        border-radius: 4px;
+    }
+    ::-webkit-scrollbar-corner {
+        background: transparent;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #7b838a;
+    }
+    ::-webkit-scrollbar-corner:hover {
+        background: #6c7379;
+    }
+    ::-webkit-scrollbar-track:hover {
+        box-shadow: none;
+    }
+
     :root {
         --background: #2a2f32;
         --header-height: 88px;
@@ -70,6 +105,7 @@
         --border-color: #1a1c1d;
         --kaj-color: #d6be5eff;
     }
+
     * {
         margin: 0;
         padding: 0;
@@ -121,8 +157,56 @@
         border: 0 transparent;
         outline: none;
     }
+
+    :disabled {
+        cursor: not-allowed !important;
+    }
 }
 
-:disabled {
-    cursor: not-allowed !important;
+@layer utilities {
+    .flex-row-relative {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+    }
+
+    .flex-column-relative {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .flex-row-absolute {
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+    }
+
+    .flex-column-absolute {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+    }
+
+    .flex-column-fixed {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+    }
+
+    .flex-row-fixed {
+        display: flex;
+        flex-direction: row;
+        position: fixed;
+    }
+
+    .center {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .start {
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
 }

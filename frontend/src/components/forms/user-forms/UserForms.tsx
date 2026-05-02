@@ -1,26 +1,22 @@
 import { ChangeEvent, JSX, useState } from "react";
 import SubmitButton from "@/components/buttons/SubmitButton";
 import { STYLES } from "@/utils/constants/styles";
-import useApi from "@/hooks/api/useApi";
+import useAdmin from "@/hooks/admin/useAdmin";
 
 interface UpdateUserData {
-    id: string | null;
+    id: number | null;
     username: string | null;
     email: string | null;
-}
-
-interface GetDeleteUserData {
-    id: string | null;
 }
 
 interface CreateUserData {
-    username: string | null;
-    email: string | null;
-    password: string | null;
+    username: string;
+    email: string;
+    password: string;
 }
 
 export const UpdateUserByIdForm = (): JSX.Element => {
-    const api = useApi();
+    const admin = useAdmin();
 
     const [data, setData] = useState<UpdateUserData>({
         id: null,
@@ -28,8 +24,24 @@ export const UpdateUserByIdForm = (): JSX.Element => {
         email: null,
     });
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
         setData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    };
+
+    const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>): void => {
+        e.preventDefault();
+        // Validate and transform
+        const id = Number(data.id);
+        if (!id) {
+            alert("ID is required");
+            return;
+        }
+
+        admin.updateUserById({
+            id,
+            username: data.username || null,
+            email: data.email || null,
+        });
     };
 
     const sharedProps = {
@@ -38,89 +50,89 @@ export const UpdateUserByIdForm = (): JSX.Element => {
     };
 
     return (
-        <>
-            <h4>Update user</h4>
+        <form
+            onSubmit={handleSubmit}
+            className="flex-column-relative center w-full"
+        >
+            <h2 className="text-base">Update user</h2>
+
+            <label htmlFor="update-user-id" className="sr-only">
+                User ID
+            </label>
             <input
                 {...sharedProps}
-                style={{ width: "60%", marginRight: "2%" }}
+                id="update-user-id"
                 name="id"
                 type="number"
-                placeholder="ID"
+                value={data.id ?? ""}
+                placeholder="User ID"
+                required
             />
+
+            <label htmlFor="update-username" className="sr-only">
+                Username (optional)
+            </label>
             <input
                 {...sharedProps}
+                id="update-username"
                 name="username"
                 type="text"
-                placeholder="Username"
+                value={data.username ?? ""}
+                placeholder="New username"
+                autoComplete="username"
             />
+
+            <label htmlFor="update-email" className="sr-only">
+                Email (optional)
+            </label>
             <input
                 {...sharedProps}
+                id="update-email"
                 name="email"
-                type="text"
-                placeholder="Email"
+                type="email"
+                value={data.email ?? ""}
+                placeholder="New email"
+                autoComplete="email"
             />
-            <SubmitButton onClick={() => api.updateUserById(data)} />
-        </>
-    );
-};
 
-export const GetUserByIdForm = (): JSX.Element => {
-    const api = useApi();
-
-    const [data, setData] = useState<GetDeleteUserData>({ id: null });
-
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-    };
-
-    const sharedProps = {
-        className: STYLES.INPUT.BASE,
-        onChange: handleChange,
-    };
-
-    return (
-        <>
-            <h4>Get user</h4>
-            <input {...sharedProps} name="id" type="number" placeholder="ID" />
-            <SubmitButton onClick={() => api.getUserById(data.id)} />
-        </>
-    );
-};
-
-export const DeleteUserByIdForm = (): JSX.Element => {
-    const api = useApi();
-
-    const [data, setData] = useState<GetDeleteUserData>({ id: null });
-
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-    };
-
-    const sharedProps = {
-        className: STYLES.INPUT.BASE,
-        onChange: handleChange,
-    };
-
-    return (
-        <>
-            <h4>Delete user</h4>
-            <input {...sharedProps} name="id" type="number" placeholder="ID" />
-            <SubmitButton onClick={() => api.deleteUserById(data.id)} />
-        </>
+            <SubmitButton />
+        </form>
     );
 };
 
 export const CreateUserForm = (): JSX.Element => {
-    const api = useApi();
+    const admin = useAdmin();
 
     const [data, setData] = useState<CreateUserData>({
-        username: null,
-        email: null,
-        password: null,
+        username: "",
+        email: "",
+        password: "",
     });
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
         setData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    };
+
+    const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>): void => {
+        e.preventDefault();
+        if (!data.username) {
+            alert("Username is required");
+            return;
+        }
+        if (!data.email) {
+            alert("Email is required");
+            return;
+        }
+        if (!data.password) {
+            alert("Password is required");
+            return;
+        }
+
+        admin.createUser({
+            username: data.username,
+            email: data.email,
+            password: data.password,
+        });
     };
 
     const sharedProps = {
@@ -129,8 +141,11 @@ export const CreateUserForm = (): JSX.Element => {
     };
 
     return (
-        <>
-            <h4>Create user</h4>
+        <form
+            onSubmit={handleSubmit}
+            className="flex-column-relative center w-full"
+        >
+            <h2 className="text-base">Create user</h2>
             <input
                 {...sharedProps}
                 name="username"
@@ -149,7 +164,7 @@ export const CreateUserForm = (): JSX.Element => {
                 type="password"
                 placeholder="Password"
             />
-            <SubmitButton onClick={() => api.createUser(data)} />
-        </>
+            <SubmitButton />
+        </form>
     );
 };

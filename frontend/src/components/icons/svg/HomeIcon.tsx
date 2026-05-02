@@ -19,6 +19,7 @@ const HomeIcon = (props: HomeIconProps): JSX.Element => {
                     "224-208zM304 384h32c26.5 0 48 21.5 48 " +
                     "48v96H256v-96c0-26.5 21.5-48 48-48z"
                 }
+                className="hover:fill-white"
             />
         </svg>
     );

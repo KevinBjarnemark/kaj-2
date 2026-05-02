@@ -1,33 +1,67 @@
 import { JSX } from "react";
 
+const title = "About";
+const description = "Learn more about KAJ";
+
 export const metadata = {
-    title: "About",
+    title,
+    description,
+
+    openGraph: {
+        title,
+        description,
+        type: "website",
+    },
+
+    twitter: {
+        card: "summary",
+        title,
+        description,
+    },
 };
 
 const About = (): JSX.Element => {
     return (
-        <article
+        <div
             className={`
-                flex-column-relative w-full justify-start
+                flex-column-relative w-full center
                 px-[2vw] py-[2vh]
                 min-h-[calc(100vh-var(--header-height))]
             `}
         >
-            <section
-                className={`
-                    flex-column-relative w-full items-center
-                    justify-start mt-[20px]
-                `}
-            >
-                <h2 className="underline">About</h2>
+            <h1 className="flex-column-relative items-center underline">
+                About
+            </h1>
 
+            <section className="flex-column-relative w-3/4 mt-5">
+                <h2>Project Overview</h2>
                 <p>
-                    This is an experimental project for managing platforms as
-                    an admin. The project allows you to manage users, perform
-                    database operations, view logging, and use admin tools.
+                    The KAJ project can be explained as a{" "}
+                    <strong>blank canvas</strong>. A template for developing
+                    apps tailored to industry standards. Rather than
+                    constraining the direction prematurely, we've established a
+                    flexible architecture that can adapt to whatever
+                    requirements emerge during exploration and iteration.
+                </p>
+                <p>
+                    The structure supports experimentation while maintaining
+                    code quality standards, allowing the team to evaluate
+                    different approaches before committing to a specific
+                    implementation strategy.
                 </p>
             </section>
-        </article>
+
+            <section className="flex-column-relative w-3/4 mt-8">
+                <h2>Approach</h2>
+                <p>
+                    We prioritize understanding the problem domain thoroughly
+                    before implementing solutions. This template provides the
+                    necessary infrastructure without prescribing a specific
+                    product direction, enabling the team to discover the
+                    optimal path through systematic exploration.
+                </p>
+            </section>
+        </div>
     );
 };
 
