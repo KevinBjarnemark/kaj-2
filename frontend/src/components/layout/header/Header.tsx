@@ -1,6 +1,6 @@
 "use client";
 
-import { JSX, useState } from "react";
+import { JSX } from "react";
 import Link from "next/link";
 import NavBar from "./components/NavBar";
 import LogoIcon from "../../icons/svg/LogoIcon";
@@ -9,7 +9,6 @@ import LoadingSpinner from "@/components/loading/LoadingSpinner";
 import useLoading from "@/hooks/loading/useLoading";
 
 const Logo = (): JSX.Element => {
-    const [hovered, setHovered] = useState<boolean>(false);
     const loading = useLoading();
 
     return (
@@ -20,12 +19,6 @@ const Logo = (): JSX.Element => {
                 flex-column-relative center w-35
                 h-[calc((var(--header-height)-5px))]
             `}
-            onMouseEnter={() => {
-                setHovered(true);
-            }}
-            onMouseLeave={() => {
-                setHovered(false);
-            }}
         >
             <LoadingSpinner isLoading={loading.loading}>
                 <LogoIcon
@@ -33,7 +26,6 @@ const Logo = (): JSX.Element => {
                     flex-column-absolute top-0 sm:top-1/2 h-[45%] sm:h-[80%] 
                     sm:-translate-y-[50%]
                 `}
-                    hovered={hovered}
                 />
             </LoadingSpinner>
         </Link>
