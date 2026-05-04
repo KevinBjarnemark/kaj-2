@@ -2,32 +2,14 @@
 # Kaj 2
 
 ## Table of Contents
-- 💡 [Introduction](#introduction)
+- 🖥️ [Deployed app](#deployed-app)
 - 🏃‍♂️ [Run the App](#run-the-app)
 - 🚀 [Deploy the app](#deploy-the-app)
 - ⛔️ [Known Issues](#known-issues)
 
-### Avklarade uppdrag  
-- ✔️ Convert to TypeScript and TailWind  
-- ✔️ Planera Agilt workflow?  
-- ✔️ Contact page with link in navbar  
-- ✔️ Navbar  
-- ✔️ Footer  
-- ✔️ Login button  
-- ✔️ Netlify hosting   
-- ✔️ Background Image
+## Deployed app  
+- 🖥️ Visit the app at [Project KAJ](https://project-kaj.netlify.app/)
 
-### Uppdrag  
-- ✨ Contact page  
-    - ✨ (`backend`) Save in **MySql** database     
-- ✨ 👤 **Jakob** Auth / Login    
-    - ✨ Authentication with JWT       
-- ✨ Backend hosting   
-- ✨ Dropdown selection för alla funktioner     
-
-
-## Introduction     
-_________________________
 
 ## Run the App
 
