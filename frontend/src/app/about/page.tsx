@@ -22,7 +22,7 @@ export const metadata = {
 
 const About = (): JSX.Element => {
     return (
-        <div
+        <article
             className={`
                 flex-column-relative w-full center
                 px-[2vw] py-[2vh]
@@ -61,7 +61,7 @@ const About = (): JSX.Element => {
                     optimal path through systematic exploration.
                 </p>
             </section>
-        </div>
+        </article>
     );
 };
 
