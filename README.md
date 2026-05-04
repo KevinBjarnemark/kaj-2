@@ -5,7 +5,6 @@
 - 🖥️ [Deployed app](#deployed-app)
 - 🏃‍♂️ [Run the App](#run-the-app)
 - 🚀 [Deploy the app](#deploy-the-app)
-- ⛔️ [Known Issues](#known-issues)
 
 ## Deployed app  
 - 🖥️ Visit the app at [Project KAJ](https://project-kaj.netlify.app/)
@@ -56,10 +55,7 @@
 
 #### 3. 🏃 Run application (terminal)
 - `npm run dev`
-    - Go to [http://localhost:3000/](http://localhost:3000/)
-
-## Known Issues  
-- __________ 
+    - Go to [http://localhost:3000/](http://localhost:3000/) 
 
 ## Deploy the app  
 - ❕ Replace `1.0.0` with the actual version  
@@ -69,3 +65,6 @@
     - ❕ Push the tag to remote repo    
 - ❕ This triggers a workflow using GitHub Actions  
 
+## Credits  
+- [Hero image](https://pixabay.com/photos/space-astronomy-galaxy-universe-9250868/)    
+- [Home icon](https://fontawesome.com/icons/house?f=classic&s=solid)
