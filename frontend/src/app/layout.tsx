@@ -1,7 +1,6 @@
 import "./globals.css";
 import { APP_CONSTANTS } from "@/utils/constants/app-constants";
 import Header from "@/components/layout/header/Header";
-import AdminProvider from "@/context/admin/AdminProvider";
 import { JSX } from "react";
 import Footer from "@/components/layout/footer/Footer";
 import LoadingProvider from "@/context/loading/LoadingProvider";
@@ -30,7 +29,7 @@ const RootLayout = ({ children }: RootLayoutProps): JSX.Element => {
                         mt-(--header-height)
                     `}
                     >
-                        <AdminProvider>{children}</AdminProvider>
+                        {children}
                     </main>
                 </LoadingProvider>
                 <Footer />

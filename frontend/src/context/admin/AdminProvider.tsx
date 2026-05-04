@@ -5,6 +5,10 @@ import useLoading from "@/hooks/loading/useLoading";
 import { API_BASE_HEADERS, API_ENDPOINTS } from "@/utils/constants/api";
 import wait from "@/utils/delay/wait";
 
+const ERROR_MESSAGE_ONLY_DEV =
+    "This funtionality is only available in a local " +
+    "develepment environment.";
+
 interface AdminProviderProps {
     children: ReactNode;
 }
@@ -36,6 +40,9 @@ const AdminProvider = ({ children }: AdminProviderProps): JSX.Element => {
     }, []);
 
     const createUser: ApiContextType["createUser"] = async (data) => {
+        if (process.env.NODE_ENV === "production") {
+            throw new Error(ERROR_MESSAGE_ONLY_DEV);
+        }
         addLoadingPoint();
         try {
             const response = await fetch(usersEndPoint, {
@@ -67,6 +74,9 @@ const AdminProvider = ({ children }: AdminProviderProps): JSX.Element => {
     };
 
     const updateUserById: ApiContextType["updateUserById"] = async (data) => {
+        if (process.env.NODE_ENV === "production") {
+            throw new Error(ERROR_MESSAGE_ONLY_DEV);
+        }
         addLoadingPoint();
         try {
             const { id, ...rest } = data;
@@ -103,6 +113,9 @@ const AdminProvider = ({ children }: AdminProviderProps): JSX.Element => {
     };
 
     const deleteUser: ApiContextType["deleteUser"] = async (id) => {
+        if (process.env.NODE_ENV === "production") {
+            throw new Error(ERROR_MESSAGE_ONLY_DEV);
+        }
         addLoadingPoint();
         try {
             const response = await fetch(`${API_ENDPOINTS.users}/${id}`, {
@@ -135,6 +148,9 @@ const AdminProvider = ({ children }: AdminProviderProps): JSX.Element => {
     };
 
     const loadUsers: ApiContextType["loadUsers"] = async () => {
+        if (process.env.NODE_ENV === "production") {
+            throw new Error(ERROR_MESSAGE_ONLY_DEV);
+        }
         addLoadingPoint();
         try {
             await wait(5000); // ❕ Just to demonstrate the loading spinner

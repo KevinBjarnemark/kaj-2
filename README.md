@@ -2,32 +2,13 @@
 # Kaj 2
 
 ## Table of Contents
-- 💡 [Introduction](#introduction)
+- 🖥️ [Deployed app](#deployed-app)
 - 🏃‍♂️ [Run the App](#run-the-app)
 - 🚀 [Deploy the app](#deploy-the-app)
-- ⛔️ [Known Issues](#known-issues)
 
-### Avklarade uppdrag  
-- ✔️ Convert to TypeScript and TailWind  
-- ✔️ Planera Agilt workflow?  
-- ✔️ Contact page with link in navbar  
-- ✔️ Navbar  
-- ✔️ Footer  
-- ✔️ Login button  
-- ✔️ Netlify hosting   
-- ✔️ Background Image
+## Deployed app  
+- 🖥️ Visit the app at [Project KAJ](https://project-kaj.netlify.app/)
 
-### Uppdrag  
-- ✨ Contact page  
-    - ✨ (`backend`) Save in **MySql** database     
-- ✨ 👤 **Jakob** Auth / Login    
-    - ✨ Authentication with JWT       
-- ✨ Backend hosting   
-- ✨ Dropdown selection för alla funktioner     
-
-
-## Introduction     
-_________________________
 
 ## Run the App
 
@@ -74,10 +55,7 @@ _________________________
 
 #### 3. 🏃 Run application (terminal)
 - `npm run dev`
-    - Go to [http://localhost:3000/](http://localhost:3000/)
-
-## Known Issues  
-- __________ 
+    - Go to [http://localhost:3000/](http://localhost:3000/) 
 
 ## Deploy the app  
 - ❕ Replace `1.0.0` with the actual version  
@@ -87,3 +65,6 @@ _________________________
     - ❕ Push the tag to remote repo    
 - ❕ This triggers a workflow using GitHub Actions  
 
+## Credits  
+- [Hero image](https://pixabay.com/photos/space-astronomy-galaxy-universe-9250868/)    
+- [Home icon](https://fontawesome.com/icons/house?f=classic&s=solid)

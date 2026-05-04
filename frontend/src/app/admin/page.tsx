@@ -1,4 +1,5 @@
 import AdminDashBoard from "@/components/admin/dashboard/AdminDashboard";
+import AdminProvider from "@/context/admin/AdminProvider";
 import { JSX } from "react";
 
 export const metadata = {
@@ -14,16 +15,18 @@ export const metadata = {
 
 const Admin = (): JSX.Element => {
     return (
-        <div
-            className={`
+        <AdminProvider>
+            <div
+                className={`
                 flex-column-relative w-full justify-start 
                 px-[2vw] py-[2vh] 
                 min-h-[calc(100vh-var(--header-height))]
             `}
-        >
-            <h1 className="sr-only">Admin</h1>
-            <AdminDashBoard />
-        </div>
+            >
+                <h1 className="sr-only">Admin</h1>
+                <AdminDashBoard />
+            </div>
+        </AdminProvider>
     );
 };
 
