@@ -1,199 +1,183 @@
 "use client";
 import { ReactNode, JSX, useState, useEffect } from "react";
-import ApiContext, { ApiContextType, UserDto } from "./AdminContext";
+import ApiContext, { AdminContextType, UserDto } from "./AdminContext";
 import useLoading from "@/hooks/loading/useLoading";
 import { API_BASE_HEADERS, API_ENDPOINTS } from "@/utils/constants/api";
 import wait from "@/utils/delay/wait";
 
 const ERROR_MESSAGE_ONLY_DEV =
-    "This funtionality is only available in a local " +
-    "develepment environment.";
+  "This funtionality is only available in a local " +
+  "develepment environment.";
 
 interface AdminProviderProps {
-    children: ReactNode;
+  children: ReactNode;
 }
 
 const buildExpectedResponseErrorString = (
-    expectedResponseStatus: number,
-    responseStatus: number,
+  expectedResponseStatus: number,
+  responseStatus: number,
 ): string => {
-    return (
-        `Expected response code ${expectedResponseStatus}, ` +
-        `but got ${responseStatus}`
-    );
+  return (
+    `Expected response code ${expectedResponseStatus}, ` +
+    `but got ${responseStatus}`
+  );
 };
 
 const AdminProvider = ({ children }: AdminProviderProps): JSX.Element => {
-    const { addLoadingPoint, removeLoadingPoint } = useLoading();
-    const [loadedUsers, setLoadedUsers] = useState<UserDto[]>([]);
+  const { addLoadingPoint, removeLoadingPoint } = useLoading();
+  const [loadedUsers, setLoadedUsers] = useState<UserDto[]>([]);
 
-    const usersEndPoint = `${process.env.NEXT_PUBLIC_BACKEND_URL}/users`;
+  const usersEndPoint = `${process.env.NEXT_PUBLIC_BACKEND_URL}/users`;
 
-    useEffect(() => {
-        if (process.env.NODE_ENV === "development") {
-            loadUsers();
-        }
+  useEffect(() => {
+    if (process.env.NODE_ENV === "development") {
+      loadUsers();
+    }
 
-        // ❕ loadUsers is not a dependency, it's loaded on mount
-        // and does not change.
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    // ❕ loadUsers is not a dependency, it's loaded on mount
+    // and does not change.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-    const createUser: ApiContextType["createUser"] = async (data) => {
-        if (process.env.NODE_ENV === "production") {
-            throw new Error(ERROR_MESSAGE_ONLY_DEV);
-        }
-        addLoadingPoint();
-        try {
-            const response = await fetch(usersEndPoint, {
-                method: "POST",
-                headers: API_BASE_HEADERS,
-                body: JSON.stringify(data),
-            });
-            const parsedResponse = await response.json();
+  const createUser: AdminContextType["createUser"] = async (data) => {
+    if (process.env.NODE_ENV === "production") {
+      throw new Error(ERROR_MESSAGE_ONLY_DEV);
+    }
+    addLoadingPoint();
+    try {
+      const response = await fetch(usersEndPoint, {
+        method: "POST",
+        headers: API_BASE_HEADERS,
+        body: JSON.stringify(data),
+      });
+      const parsedResponse = await response.json();
 
-            const expectedResponse = 201;
-            if (response?.status === expectedResponse) {
-                setLoadedUsers((prev) => [...prev, parsedResponse]);
-            } else {
-                throw new Error(
-                    buildExpectedResponseErrorString(
-                        expectedResponse,
-                        response.status,
-                    ),
-                );
-            }
+      const expectedResponse = 201;
+      if (response?.status === expectedResponse) {
+        setLoadedUsers((prev) => [...prev, parsedResponse]);
+      } else {
+        throw new Error(
+          buildExpectedResponseErrorString(expectedResponse, response.status),
+        );
+      }
 
-            return parsedResponse;
-        } catch (error) {
-            console.error("❌ API Error:", error);
-            throw error;
-        } finally {
-            removeLoadingPoint();
-        }
-    };
+      return parsedResponse;
+    } catch (error) {
+      console.error("❌ API Error:", error);
+      throw error;
+    } finally {
+      removeLoadingPoint();
+    }
+  };
 
-    const updateUserById: ApiContextType["updateUserById"] = async (data) => {
-        if (process.env.NODE_ENV === "production") {
-            throw new Error(ERROR_MESSAGE_ONLY_DEV);
-        }
-        addLoadingPoint();
-        try {
-            const { id, ...rest } = data;
-            const response = await fetch(`${usersEndPoint}/${id}`, {
-                method: "PATCH",
-                headers: API_BASE_HEADERS,
-                body: JSON.stringify(rest),
-            });
-            const parsedResponse = await response.json();
+  const updateUserById: AdminContextType["updateUserById"] = async (data) => {
+    if (process.env.NODE_ENV === "production") {
+      throw new Error(ERROR_MESSAGE_ONLY_DEV);
+    }
+    addLoadingPoint();
+    try {
+      const { id, ...rest } = data;
+      const response = await fetch(`${usersEndPoint}/${id}`, {
+        method: "PATCH",
+        headers: API_BASE_HEADERS,
+        body: JSON.stringify(rest),
+      });
+      const parsedResponse = await response.json();
 
-            const expectedResponse = 200;
-            if (response?.status === expectedResponse) {
-                setLoadedUsers((prev) =>
-                    prev.map((user) =>
-                        user.id === id ? parsedResponse : user,
-                    ),
-                );
-            } else {
-                throw new Error(
-                    buildExpectedResponseErrorString(
-                        expectedResponse,
-                        response.status,
-                    ),
-                );
-            }
+      const expectedResponse = 200;
+      if (response?.status === expectedResponse) {
+        setLoadedUsers((prev) =>
+          prev.map((user) => (user.id === id ? parsedResponse : user)),
+        );
+      } else {
+        throw new Error(
+          buildExpectedResponseErrorString(expectedResponse, response.status),
+        );
+      }
 
-            return parsedResponse;
-        } catch (error) {
-            console.error("❌ API Error:", error);
-            throw error;
-        } finally {
-            removeLoadingPoint();
-        }
-    };
+      return parsedResponse;
+    } catch (error) {
+      console.error("❌ API Error:", error);
+      throw error;
+    } finally {
+      removeLoadingPoint();
+    }
+  };
 
-    const deleteUser: ApiContextType["deleteUser"] = async (id) => {
-        if (process.env.NODE_ENV === "production") {
-            throw new Error(ERROR_MESSAGE_ONLY_DEV);
-        }
-        addLoadingPoint();
-        try {
-            const response = await fetch(`${API_ENDPOINTS.users}/${id}`, {
-                method: "DELETE",
-                headers: API_BASE_HEADERS,
-            });
+  const deleteUser: AdminContextType["deleteUser"] = async (id) => {
+    if (process.env.NODE_ENV === "production") {
+      throw new Error(ERROR_MESSAGE_ONLY_DEV);
+    }
+    addLoadingPoint();
+    try {
+      const response = await fetch(`${API_ENDPOINTS.users}/${id}`, {
+        method: "DELETE",
+        headers: API_BASE_HEADERS,
+      });
 
-            const expectedResponse = 204;
-            if (response?.status === expectedResponse) {
-                setLoadedUsers((prev) =>
-                    prev.filter((user) => user.id !== id),
-                );
-            } else {
-                throw new Error(
-                    buildExpectedResponseErrorString(
-                        expectedResponse,
-                        response.status,
-                    ),
-                );
-            }
+      const expectedResponse = 204;
+      if (response?.status === expectedResponse) {
+        setLoadedUsers((prev) => prev.filter((user) => user.id !== id));
+      } else {
+        throw new Error(
+          buildExpectedResponseErrorString(expectedResponse, response.status),
+        );
+      }
 
-            setLoadedUsers((prev) => prev.filter((user) => user.id !== id));
-            return response;
-        } catch (error) {
-            console.error("❌ API Error:", error);
-            throw error;
-        } finally {
-            removeLoadingPoint();
-        }
-    };
+      setLoadedUsers((prev) => prev.filter((user) => user.id !== id));
+      return response;
+    } catch (error) {
+      console.error("❌ API Error:", error);
+      throw error;
+    } finally {
+      removeLoadingPoint();
+    }
+  };
 
-    const loadUsers: ApiContextType["loadUsers"] = async () => {
-        if (process.env.NODE_ENV === "production") {
-            throw new Error(ERROR_MESSAGE_ONLY_DEV);
-        }
-        addLoadingPoint();
-        try {
-            await wait(5000); // ❕ Just to demonstrate the loading spinner
-            const response = await fetch(usersEndPoint, {
-                method: "GET",
-                headers: API_BASE_HEADERS,
-            });
-            const parsedResponse = await response.json();
+  const loadUsers: AdminContextType["loadUsers"] = async () => {
+    if (process.env.NODE_ENV === "production") {
+      throw new Error(ERROR_MESSAGE_ONLY_DEV);
+    }
+    addLoadingPoint();
+    try {
+      await wait(5000); // ❕ Just to demonstrate the loading spinner
+      const response = await fetch(usersEndPoint, {
+        method: "GET",
+        headers: API_BASE_HEADERS,
+      });
+      const parsedResponse = await response.json();
 
-            const expectedResponse = 200;
-            if (response?.status === expectedResponse) {
-                setLoadedUsers(parsedResponse);
-            } else {
-                throw new Error(
-                    buildExpectedResponseErrorString(
-                        expectedResponse,
-                        response.status,
-                    ),
-                );
-            }
-            setLoadedUsers(parsedResponse);
-            return parsedResponse as UserDto[];
-        } catch (error) {
-            console.error("❌ API Error:", error);
-            throw error;
-        } finally {
-            removeLoadingPoint();
-        }
-    };
+      const expectedResponse = 200;
+      if (response?.status === expectedResponse) {
+        setLoadedUsers(parsedResponse);
+      } else {
+        throw new Error(
+          buildExpectedResponseErrorString(expectedResponse, response.status),
+        );
+      }
+      setLoadedUsers(parsedResponse);
+      return parsedResponse as UserDto[];
+    } catch (error) {
+      console.error("❌ API Error:", error);
+      throw error;
+    } finally {
+      removeLoadingPoint();
+    }
+  };
 
-    return (
-        <ApiContext.Provider
-            value={{
-                createUser,
-                loadUsers,
-                updateUserById,
-                deleteUser,
-                loadedUsers,
-            }}
-        >
-            {children}
-        </ApiContext.Provider>
-    );
+  return (
+    <ApiContext.Provider
+      value={{
+        createUser,
+        loadUsers,
+        updateUserById,
+        deleteUser,
+        loadedUsers,
+      }}
+    >
+      {children}
+    </ApiContext.Provider>
+  );
 };
 
 export default AdminProvider;
