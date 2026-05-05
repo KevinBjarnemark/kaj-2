@@ -6,36 +6,35 @@ import Footer from "@/components/layout/footer/Footer";
 import LoadingProvider from "@/context/loading/LoadingProvider";
 
 interface RootLayoutProps {
-    // ❕ `React.ReactNode` accepts anything that can be rendered
-    children: React.ReactNode;
+  children: React.ReactNode;
 }
 
 export const metadata = {
-    title: {
-        template: `%s | ${APP_CONSTANTS.APP_NAME}`,
-        default: `${APP_CONSTANTS.APP_NAME}`,
-    },
+  title: {
+    template: `%s | ${APP_CONSTANTS.APP_NAME}`,
+    default: `${APP_CONSTANTS.APP_NAME}`,
+  },
 };
 
 const RootLayout = ({ children }: RootLayoutProps): JSX.Element => {
-    return (
-        <html lang="en">
-            <body className="flex-column-relative center w-full">
-                <LoadingProvider>
-                    <Header />
-                    <main
-                        className={`
+  return (
+    <html lang="en">
+      <body className="flex-column-relative center w-full">
+        <LoadingProvider>
+          <Header />
+          <main
+            className={`
                         flex-column-relative w-full pb-20 
                         mt-(--header-height)
                     `}
-                    >
-                        {children}
-                    </main>
-                </LoadingProvider>
-                <Footer />
-            </body>
-        </html>
-    );
+          >
+            {children}
+          </main>
+        </LoadingProvider>
+        <Footer />
+      </body>
+    </html>
+  );
 };
 
 export default RootLayout;

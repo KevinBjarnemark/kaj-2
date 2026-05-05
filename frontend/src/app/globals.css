@@ -1,212 +1,208 @@
-/* ❕ Partial importing of tailwind, ignores defaults. 
-    - This is a legit strategy for precise customizing 
-    of the app.  
-*/
 @import "tailwindcss/theme";
 @import "tailwindcss/utilities";
 
 @font-face {
-    font-family: "Niramit";
-    src: url("/fonts/Niramit/Niramit-Light.woff2") format("woff2");
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Niramit";
+  src: url("/fonts/Niramit/Niramit-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Niramit";
-    src: url("/fonts/Niramit/Niramit-ExtraLight.woff2") format("woff2");
-    font-weight: 200;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Niramit";
+  src: url("/fonts/Niramit/Niramit-ExtraLight.woff2") format("woff2");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Niramit";
-    src: url("/fonts/Niramit/Niramit-Regular.woff2") format("woff2");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Niramit";
+  src: url("/fonts/Niramit/Niramit-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Niramit";
-    src: url("/fonts/Niramit/Niramit-Medium.woff2") format("woff2");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Niramit";
+  src: url("/fonts/Niramit/Niramit-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Niramit";
-    src: url("/fonts/Niramit/Niramit-SemiBold.woff2") format("woff2");
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Niramit";
+  src: url("/fonts/Niramit/Niramit-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Niramit";
-    src: url("/fonts/Niramit/Niramit-Bold.woff2") format("woff2");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Niramit";
+  src: url("/fonts/Niramit/Niramit-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Lilita One";
-    src: url("/fonts/Lilita_One/Lilita_One-Regular.woff2") format("woff2");
-    font-weight: 100 900;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Lilita One";
+  src: url("/fonts/Lilita_One/Lilita_One-Regular.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
 }
 
 @theme {
-    --color-kaj: #d6be5e;
-    --color-button: #65696b;
-    --color-button-hovered: #7c8184;
-    --color-button-text: #c1c8cd;
-    --color-border: #1a1c1d;
-    --color-border-300: #34383b;
-    --color-component-background: #212324;
-    --color-table-index: #3b3d3eff;
+  --color-kaj: #d6be5e;
+  --color-button: #65696b;
+  --color-button-hovered: #7c8184;
+  --color-button-text: #c1c8cd;
+  --color-border: #1a1c1d;
+  --color-border-300: #34383b;
+  --color-component-background: #212324;
+  --color-table-index: #3b3d3eff;
 
-    --font-lilita: "Lilita One", sans-serif;
+  --font-lilita: "Lilita One", sans-serif;
 }
 
 @layer base {
-    ::-webkit-scrollbar {
-        width: 10px;
-        height: 4px;
-        background: #363739;
-    }
-    ::-webkit-scrollbar-thumb {
-        background: #6c7379;
-        border-radius: 4px;
-    }
-    ::-webkit-scrollbar-corner {
-        background: transparent;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-        background: #7b838a;
-    }
-    ::-webkit-scrollbar-corner:hover {
-        background: #6c7379;
-    }
-    ::-webkit-scrollbar-track:hover {
-        box-shadow: none;
-    }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 4px;
+    background: #363739;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #6c7379;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #7b838a;
+  }
+  ::-webkit-scrollbar-corner:hover {
+    background: #6c7379;
+  }
+  ::-webkit-scrollbar-track:hover {
+    box-shadow: none;
+  }
 
-    :root {
-        --background: #2a2f32;
-        --header-height: 88px;
-        --footer-height: 88px;
-        --navbar-height: 30px;
-        --border-color: #1a1c1d;
-        --kaj-color: #d6be5eff;
-    }
+  :root {
+    --background: #2a2f32;
+    --header-height: 88px;
+    --footer-height: 88px;
+    --navbar-height: 30px;
+    --border-color: #1a1c1d;
+    --kaj-color: #d6be5eff;
+  }
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Niramit", sans-serif;
-        text-align: left;
-        color: #9fa7ad;
-    }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Niramit", sans-serif;
+    text-align: left;
+    color: #9fa7ad;
+  }
 
-    main {
-        background-color: var(--background);
-    }
+  main {
+    background-color: var(--background);
+  }
 
-    header {
-        z-index: 1;
-        background-color: var(--background);
-    }
+  header {
+    z-index: 1;
+    background-color: var(--background);
+  }
 
-    article {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        justify-content: center;
-        position: relative;
-        text-align: center;
-        min-width: 100%;
-        max-width: 100%;
-    }
+  article {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    min-width: 100%;
+    max-width: 100%;
+  }
 
-    footer {
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        background-color: var(--background);
-    }
+  footer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: var(--background);
+  }
 
-    a {
-        text-decoration: none;
-    }
+  a {
+    text-decoration: none;
+  }
 
-    button {
-        border: 0 transparent;
-        cursor: pointer;
-        text-decoration: none;
-    }
+  button {
+    border: 0 transparent;
+    cursor: pointer;
+    text-decoration: none;
+  }
 
-    input {
-        background-color: transparent;
-        border: 0 transparent;
-        outline: none;
-    }
+  input {
+    background-color: transparent;
+    border: 0 transparent;
+    outline: none;
+  }
 
-    :disabled {
-        cursor: not-allowed !important;
-    }
+  :disabled {
+    cursor: not-allowed !important;
+  }
 }
 
 @layer utilities {
-    .flex-row-relative {
-        display: flex;
-        flex-direction: row;
-        position: relative;
-    }
+  .flex-row-relative {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+  }
 
-    .flex-column-relative {
-        display: flex;
-        flex-direction: column;
-        position: relative;
-    }
+  .flex-column-relative {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
 
-    .flex-row-absolute {
-        display: flex;
-        flex-direction: row;
-        position: absolute;
-    }
+  .flex-row-absolute {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+  }
 
-    .flex-column-absolute {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-    }
+  .flex-column-absolute {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+  }
 
-    .flex-column-fixed {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-    }
+  .flex-column-fixed {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+  }
 
-    .flex-row-fixed {
-        display: flex;
-        flex-direction: row;
-        position: fixed;
-    }
+  .flex-row-fixed {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+  }
 
-    .center {
-        align-items: center;
-        justify-content: center;
-    }
+  .center {
+    align-items: center;
+    justify-content: center;
+  }
 
-    .start {
-        align-items: flex-start;
-        justify-content: flex-start;
-    }
+  .start {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
 }
